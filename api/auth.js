@@ -1,14 +1,29 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
-const { check, validationResult } = require('express-validator');
 const jwt = require('jsonwebtoken');
 const config = require('config');
+const auth = require('../middleware/auth');
+const { check, validationResult } = require('express-validator');
 
-const User = require('../../models/User');
+const User = require('../models/User');
 
-//@route Post api/users
-//desc register a user
+// @route GET api/auth
+// @desc GET user info that is logged in
+// @access private route
+
+router.get('/', auth, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).select('-password');
+    res.json(user);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+//@route Post api/auth
+//desc login  a user
 //acess public
 router.post(
   '/',
@@ -25,28 +40,20 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
     //check if the user already exists
-    const { email, password, company } = req.body;
+    const { email, password } = req.body;
 
     try {
       //see if user already exists
       let user = await User.findOne({ email: email });
-      if (user) {
-        res.status(400).json({ errors: [{ msg: 'User already exists' }] });
-      }
 
-      //new instance of user
-      user = new User({
-        email,
-        password,
-        company,
-      });
+      if (!user)
+        return res
+          .status(400)
+          .json({ errors: [{ msg: 'Invalid credentials' }] });
 
-      //encrypt password
-      const salt = await bcrypt.genSalt(10);
-      user.password = await bcrypt.hash(password, salt);
+      const isMatch = await bcrypt.compare(password, user.password);
 
-      //save user
-      await user.save();
+      if (!isMatch) return res.status(400).json({ msg: 'Invalid Credentials' });
 
       //return jsonwebtoken so user can automatically log in
       const payload = {
@@ -66,7 +73,8 @@ router.post(
         }
       );
     } catch (err) {
-      console.error(err.message).send('Server error');
+      console.log(err.message);
+      res.status(500).send('Server error');
     }
   }
 );
