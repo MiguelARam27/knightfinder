@@ -5,27 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="../css/main.css" />
-    <script src="https://kit.fontawesome.com/f9bbc55cd0.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/f9bbc55cd0.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <nav class="nav">
-      <div class="nav__container">
-        <div class="nav__logo">
-          <img class="nav__logo__img" src="../img/try.png"></img>
-          <span class="nav__logo__title">Knightfinder</span>
-        </div>
-        <div class="nav__Link-toggle">
-          <i class="fas fa-bars"></i>
-        </div>
-        <a href="#" class="nav__item u-margin-right-small">Home</a>
-        <a href="#" class="nav__item u-margin-right-small">Sign-up</a>
-        <a href="#" class="nav__item u-margin-right-small">Login</a>
+    <header class="nav">
+      <div class="nav__logo">
+        <img class="nav__logo__img" src="../img/try.png"></img>
+        <span class="nav__logo__title">Knightfinder</span>
       </div>
-    </nav>
-    <div class="second-nav">
-      <a href="#" class="second-nav__item ">Home</a>
-      <a href="#" class="second-nav__item">Sign-up</a>
-      <a href="#" class="second-nav__item">Login</a>
-    </div>
+      <input type="checkbox" class="nav__link-toggle" id="nav-toggle" />
+      <nav class="nav__item-container">
+        <a href="#" class="nav__item-container__link u-margin-right-small"
+          >Home</a
+        >
+        <a href="#" class="nav__item-container__link u-margin-right-small">Sign-up</a>
+        <a href="#" class="nav__item-container__link u-margin-right-small">Login</a>
+      </nav>
+      <label for="nav-toggle" class="nav__toggle-label">
+        <span></span>
+      </label>
+    </header>
   </body>
 </html>

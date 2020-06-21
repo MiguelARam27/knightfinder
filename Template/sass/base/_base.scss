@@ -35,7 +35,8 @@ body {
 }
 
 a,
-a:visited {
+a:visited,
+a:target {
   text-decoration: none;
 }
 
