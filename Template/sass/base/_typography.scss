@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+
 body {
   //   font-family: 'Lato', sans-serif;
   //   font-weight: 400;
@@ -12,20 +14,23 @@ body {
 
   backface-visibility: hidden;
   margin-bottom: 6rem;
+  font-weight: 800;
+  font-family: 'Montserrat', sans-serif;
 
   &--main {
-    display: block;
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
 
-    animation-name: moveInLeft;
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
+    font-size: 5.5rem;
+    letter-spacing: 2.5rem;
+    color: $color-white;
+    text-transform: uppercase;
+    margin-top: 3rem;
 
     @include respond(phone) {
       letter-spacing: 1rem;
-      font-family: 5rem;
+
+      font-size: 4.3rem;
     }
     /*
         animation-delay: 3s;
