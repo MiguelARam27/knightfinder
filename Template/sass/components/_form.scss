@@ -91,6 +91,13 @@
     justify-items: center;
     align-items: center;
     background-color: rgba(black, 0.85);
+    @include respond(phone) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+    }
 
     &__container {
       display: flex;
