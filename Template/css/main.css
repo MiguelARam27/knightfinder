@@ -18,6 +18,7 @@ ORDER: Base + typography > general layout + grid > page layout > components
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Muli:300,400,700,900");
 @keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -775,6 +776,35 @@ a:target {
 .home {
   padding: 2rem 4rem;
   background-color: rgba(255, 201, 4, 0.5);
+  height: 100rem;
+}
+.home__container {
+  height: 15vh;
+  margin-top: 5rem;
+}
+.home__container__button {
+  outline: none;
+  border: none;
+  position: relative;
+  background-color: #fcad26;
+  font-size: 16px;
+  font-weight: 300px;
+  color: white;
+  letter-spacing: 2px;
+  padding: 25px 80px;
+  margin: 0 auto;
+  box-shadow: 0 3.2rem #efa424;
+  border-radius: 20px;
+}
+.home__container__button:active {
+  box-shadow: none;
+  color: black;
+  top: 3.2rem;
+}
+.home__container__button:hover {
+  cursor: pointer;
+  box-shadow: 0 3.2rem #efa424;
+  top: 2px;
 }
 
 /*# sourceMappingURL=main.css.map */

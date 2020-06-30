@@ -1,4 +1,47 @@
+@import url('https://fonts.googleapis.com/css?family=Muli:300,400,700,900');
+
+$bg: #fff;
+$text: #382b22;
+$light-pink: #fff0f0;
+$pink: #ffe9e9;
+$dark-pink: #f9c4d2;
+$pink-border: #b18597;
+$pink-shadow: #ffe3e2;
+
 .home {
   padding: 2rem 4rem;
   background-color: $color-secondary-light;
+  height: 100rem;
+
+  &__container {
+    height: 15vh;
+    margin-top: 5rem;
+
+    &__button {
+      outline: none;
+      border: none;
+      position: relative;
+      background-color: #fcad26;
+      font-size: 16px;
+      font-weight: 300px;
+      color: white;
+      letter-spacing: 2px;
+      padding: 25px 80px;
+      margin: 0 auto;
+      box-shadow: 0 3.2rem #efa424;
+      border-radius: 20px;
+
+      &:active {
+        box-shadow: none;
+        color: black;
+        top: 3.2rem;
+      }
+
+      &:hover {
+        cursor: pointer;
+        box-shadow: 0 3.2rem #efa424;
+        top: 2px;
+      }
+    }
+  }
 }
