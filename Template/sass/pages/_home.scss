@@ -16,32 +16,35 @@ $pink-shadow: #ffe3e2;
   &__container {
     height: 15vh;
     margin-top: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &__button {
       outline: none;
       border: none;
+
       position: relative;
       background-color: #fcad26;
       font-size: 16px;
       font-weight: 300px;
       color: white;
       letter-spacing: 2px;
-      padding: 25px 80px;
+      padding: 5rem 13rem;
       margin: 0 auto;
-      box-shadow: 0 3.2rem #efa424;
+      box-shadow: 0 1.2rem #efa424;
       border-radius: 20px;
 
       &:active {
-        box-shadow: none;
-        color: black;
-        top: 3.2rem;
+        box-shadow: 0 0.1rem#efa424;
+        top: 1rem;
       }
 
-      &:hover {
-        cursor: pointer;
-        box-shadow: 0 3.2rem #efa424;
-        top: 2px;
-      }
+      // &:hover {
+      //   box-shadow: 0 0.8rem#efa424;
+      //   top: 2px;
+      //   cursor: pointer;
+      // }
     }
   }
 }
