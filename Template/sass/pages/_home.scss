@@ -1,50 +1,56 @@
-@import url('https://fonts.googleapis.com/css?family=Muli:300,400,700,900');
-
-$bg: #fff;
-$text: #382b22;
-$light-pink: #fff0f0;
-$pink: #ffe9e9;
-$dark-pink: #f9c4d2;
-$pink-border: #b18597;
-$pink-shadow: #ffe3e2;
-
 .home {
-  padding: 2rem 4rem;
+  padding: 4rem 4rem;
   background-color: $color-secondary-light;
   height: 100rem;
+  position: relative;
+  @include respond(phone) {
+    padding: 2rem 0.5rem;
+  }
 
   &__container {
-    height: 15vh;
+    position: relative;
+    height: 90%;
     margin-top: 5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-items: center;
+    align-items: space-around;
+    border-radius: 1rem;
+    border: 1px solid white;
+    background-color: white;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background-color: green;
+    gap: 1rem;
 
     &__button {
       outline: none;
       border: none;
-
-      position: relative;
-      background-color: #fcad26;
-      font-size: 16px;
+      position: absolute;
+      background-color: $color-black;
+      font-size: 2.4rem;
       font-weight: 300px;
       color: white;
-      letter-spacing: 2px;
-      padding: 5rem 13rem;
-      margin: 0 auto;
-      box-shadow: 0 1.2rem #efa424;
-      border-radius: 20px;
-
-      &:active {
-        box-shadow: 0 0.1rem#efa424;
-        top: 1rem;
+      letter-spacing: 0.5rem;
+      padding: 2rem 6rem;
+      top: -5%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      box-shadow: 0 1.2rem $color-grey-dark-3;
+      border-radius: 2rem 2rem;
+      @include respond(phone) {
+        padding: 1rem 2.5rem;
+        font-size: 2.5rem;
+        letter-spacing: 0.2rem;
       }
-
-      // &:hover {
-      //   box-shadow: 0 0.8rem#efa424;
-      //   top: 2px;
-      //   cursor: pointer;
-      // }
     }
+
+    // &__card {
+    //   background-color: red;
+    //   height: 3.5rem;
+    //   width: 4.5rem;
+    //   box-shadow: 0 0 2em rgba(0, 0, 0, 0.125);
+    //   background-color: #fff;
+    // }
   }
 }
