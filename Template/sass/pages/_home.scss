@@ -9,7 +9,8 @@
 
   &__container {
     position: relative;
-    height: 90%;
+    height: auto;
+    min-height: 100vh;
     margin-top: 5rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -20,19 +21,21 @@
     background-color: white;
     padding-top: 2rem;
     padding-bottom: 2rem;
-    background-color: green;
+    // background-color: green;
     gap: 1rem;
 
     &__button {
+      font-family: 'Montserrat', sans-serif;
+
       outline: none;
       border: none;
       position: absolute;
       background-color: $color-black;
       font-size: 2.4rem;
-      font-weight: 300px;
+      font-weight: 10rem;
       color: white;
       letter-spacing: 0.5rem;
-      padding: 2rem 6rem;
+      padding: 1rem 4rem;
       top: -5%;
       left: 50%;
       transform: translate(-50%, 0);
@@ -44,13 +47,5 @@
         letter-spacing: 0.2rem;
       }
     }
-
-    // &__card {
-    //   background-color: red;
-    //   height: 3.5rem;
-    //   width: 4.5rem;
-    //   box-shadow: 0 0 2em rgba(0, 0, 0, 0.125);
-    //   background-color: #fff;
-    // }
   }
 }
