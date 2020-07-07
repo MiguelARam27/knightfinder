@@ -35,7 +35,7 @@
   &__name {
     margin-top: 3.5rem;
     margin-bottom: 0.5em;
-    font-size: 1.4rem;
+    font-size: 1.7rem;
   }
 
   &__link {
@@ -62,17 +62,21 @@
     height: auto;
 
     &__container {
+      height: auto;
       margin-top: 1.125rem;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(3.5rem, 1fr));
+      grid-template-columns: 1fr 1fr 1fr;
       justify-items: center;
       align-items: space-around;
+      gap: 1rem;
+      overflow-y: scroll;
+      &__club-name {
+        padding: 0.5rem 0.5rem;
+        color: white;
+        font-size: 1.5rem;
+        background-color: $color-black;
+        border-radius: 0.5rem 0.5rem;
+      }
     }
-  }
-  &__blank {
-    margin-top: 0.5em;
-    padding: 1em 0;
-    background-color: blue;
-    height: auto;
   }
 }
