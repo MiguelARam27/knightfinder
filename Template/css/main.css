@@ -302,7 +302,7 @@ a:target {
   display: block;
   padding: 0.5em 1em;
   text-decoration: none;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
 }
 .contact-card__link a {
   color: #424242;
@@ -310,6 +310,22 @@ a:target {
 }
 .contact-card__link:hover {
   background-color: #fafafa;
+}
+.contact-card__class {
+  font-style: italic;
+  font-size: 1.85rem;
+  background-color: #b7a369;
+  width: 50%;
+  margin: 0 auto;
+  color: white;
+}
+.contact-card__major {
+  font-size: 1.65rem;
+  font-size: 1.85rem;
+  background-color: #b7a369;
+  width: 50%;
+  margin: 0 auto;
+  color: white;
 }
 .contact-card__clubs {
   margin-top: 0.5rem;

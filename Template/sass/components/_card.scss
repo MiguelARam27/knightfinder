@@ -42,16 +42,32 @@
     display: block;
     padding: 0.5em 1em;
     text-decoration: none;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
 
     a {
       color: #424242;
       text-decoration: none;
     }
-
     &:hover {
       background-color: #fafafa;
     }
+  }
+
+  &__class {
+    font-style: italic;
+    font-size: 1.85rem;
+    background-color: $color-primary;
+    width: 50%;
+    margin: 0 auto;
+    color: white;
+  }
+  &__major {
+    font-size: 1.65rem;
+    font-size: 1.85rem;
+    background-color: $color-primary;
+    width: 50%;
+    margin: 0 auto;
+    color: white;
   }
 
   &__clubs {
