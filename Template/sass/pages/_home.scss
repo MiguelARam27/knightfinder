@@ -1,7 +1,8 @@
 .home {
   padding: 4rem 4rem;
   background-color: $color-secondary-light;
-  height: 100rem;
+  height: auto;
+  min-height: 100rem;
   position: relative;
   @include respond(phone) {
     padding: 2rem 0.5rem;
@@ -10,7 +11,7 @@
   &__container {
     position: relative;
     height: auto;
-    min-height: 100vh;
+    min-height: 100%;
     margin-top: 5rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -20,9 +21,9 @@
     border: 1px solid white;
     background-color: white;
     padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-bottom: 4rem;
     // background-color: green;
-    gap: 1rem;
+    gap: 2.4rem;
 
     &__button {
       font-family: 'Montserrat', sans-serif;
