@@ -19,12 +19,14 @@
   "homepage": "https://github.com/MiguelARam27/knightfinder#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "config": "^3.3.1",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "express-validator": "^6.5.0",
-    "gravatar": "^1.8.0",
+    "express-async-handler": "^1.1.4",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.9.18"
+    "mongoose": "^5.10.9",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "colors": "^1.4.0"
   },
   "devDependencies": {
     "concurrently": "^5.2.0",

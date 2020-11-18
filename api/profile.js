@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const auth = require('../middleware/auth');
+const auth = require('../backend/middleware/auth');
 const { check, validationResult } = require('express-validator');
 
-const Profile = require('../models/Profile');
+const Profile = require('../backend/models/Profile');
 //@route POST api/profile
 //desc create a profile or update for a user
 //acess private
