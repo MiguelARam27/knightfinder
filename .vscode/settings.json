@@ -1,4 +1,4 @@
 {
-    "css.completion.completePropertyWithSemicolon": false,
-    "liveServer.settings.port": 5501
+  "css.completion.completePropertyWithSemicolon": false,
+  "liveServer.settings.port": 5501
 }
