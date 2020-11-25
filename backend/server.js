@@ -6,6 +6,8 @@ import connectDB from './config/db.js';
 import morgan from 'morgan';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 import userRoutes from './routes/userRoutes.js';
+
+import profileRoutes from './routes/profileRoutes.js';
 dotenv.config();
 
 connectDB();
@@ -18,6 +20,7 @@ if (process.env.NODE_ENV === 'develovment') {
 app.use(express.json());
 
 app.use('/api/users', userRoutes);
+app.use('/api/profile', profileRoutes);
 app.get('/', (req, res) => res.send('app is running'));
 
 app.use(notFound);
