@@ -6,9 +6,15 @@ import {
   userProfiles,
   userProfileInfo,
   userProfileClubs,
+  userProfileClubsUpdate,
+  addFriend,
 } from '../controllers/profileController.js';
 
 router.route('/').post(protect, userProfile).get(protect, userProfiles);
-router.route('/clubs').post(protect, userProfileClubs);
+router
+  .route('/clubs')
+  .post(protect, userProfileClubs)
+  .put(protect, userProfileClubsUpdate);
+router.route('/friends/:id').post(protect, addFriend);
 router.route('/:id').get(protect, userProfileInfo);
 export default router;

@@ -19,11 +19,18 @@ const ProfileSchema = new mongoose.Schema({
       clubName: {
         type: String,
         required: true,
+        unique: true,
       },
       timeAttended: {
         type: Number,
         required: true,
       },
+    },
+  ],
+  friends: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Profile',
     },
   ],
 });

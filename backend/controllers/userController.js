@@ -67,7 +67,7 @@ const getUsers = asyncHandler(async (req, res) => {
 //@ desc Get user info
 //@route GET /api/users/profile
 //access public
-const getUserProfile = asyncHandler(async (req, res) => {
+const getUserInfo = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
 
   if (user) {
@@ -82,4 +82,4 @@ const getUserProfile = asyncHandler(async (req, res) => {
   }
 });
 
-export { authUser, registerUser, getUsers, getUserProfile };
+export { authUser, registerUser, getUsers, getUserInfo };
