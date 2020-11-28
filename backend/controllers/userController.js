@@ -68,13 +68,13 @@ const getUsers = asyncHandler(async (req, res) => {
 //@route GET /api/users/profile
 //access public
 const getUserInfo = asyncHandler(async (req, res) => {
-  const user = await User.findById(req.user._id);
+  const user = await User.findById(req.user._id).select('-password');
+  const profile = await Profile.find({ user: req.user._id });
 
-  if (user) {
+  if (user && profile) {
     res.json({
-      _id: user._id,
-      name: user.name,
-      email: user.email,
+      user,
+      profile,
     });
   } else {
     res.status(404);
