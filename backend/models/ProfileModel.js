@@ -29,8 +29,11 @@ const ProfileSchema = new mongoose.Schema({
   ],
   friends: [
     {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Profile',
+      profile: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Profile',
+        unique: true,
+      },
     },
   ],
 });

@@ -118,18 +118,44 @@ const userProfileInfo = asyncHandler(async (req, res) => {
 //access private
 const addFriend = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
-  const profile = await Profile.findById(req.params.id);
+  const profile = await Profile.findOne({ user: req.user._id });
+
+  let friend = { profile: req.params.id };
 
   if (profile && user) {
-    let updatedProfile = await Profile.findOneAndUpdate(
-      { user: req.user._id },
-      { friends: req.params.id },
-      { new: true, upsert: true, setDefaultsOnInsert: true }
-    );
+    profile.friends.push(friend);
+
+    const updatedProfile = await profile.save();
     res.json(updatedProfile);
   } else {
     res.status(404);
     throw new Error('not found');
+  }
+});
+//@desc Delete one friend
+//@route Delete /api/profile/friends/:id
+//access private
+const removeFriend = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.user._id);
+  const profile = await Profile.find({ user: req.user._id });
+
+  let friendExists;
+
+  profile[0].friends.map((x) => {
+    if (JSON.stringify(x.profile) === JSON.stringify(req.params.id)) {
+      friendExists = true;
+    }
+  });
+
+  if (profile && user && friendExists) {
+    await Profile.updateOne(
+      { user: req.user._id },
+      { $pull: { friends: { profile: req.params.id } } }
+    );
+    res.json('User Removed');
+  } else {
+    res.status(404);
+    throw new Error('User not found');
   }
 });
 
@@ -140,4 +166,5 @@ export {
   userProfileClubs,
   userProfileClubsUpdate,
   addFriend,
+  removeFriend,
 };
