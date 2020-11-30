@@ -159,6 +159,25 @@ const removeFriend = asyncHandler(async (req, res) => {
   }
 });
 
+//@desc Get all friends
+//@route Get /api/profile/friends
+//accesss private
+const getFriends = asyncHandler(async (req, res) => {
+  const profile = await Profile.find({ user: req.user._id });
+
+  let friendsList = [];
+  profile[0].friends.map((x) => {
+    friendsList.push(x.profile);
+  });
+  if (profile && profile[0].friends) {
+    let userFriendList = await Profile.find().where('_id').in(friendsList);
+    res.json(userFriendList);
+  } else {
+    res.status(404);
+    throw new Error('Users not found');
+  }
+});
+
 export {
   userProfile,
   userProfiles,
@@ -167,4 +186,5 @@ export {
   userProfileClubsUpdate,
   addFriend,
   removeFriend,
+  getFriends,
 };
