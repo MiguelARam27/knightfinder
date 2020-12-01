@@ -3,7 +3,10 @@ import React from 'react';
 const SignUp = () => {
   return (
     <>
-      <div className='signup'>
+      <div
+        className='signup'
+        style={{ backgroundImage: "url('./img/knight.jpg')" }}
+      >
         <form className='form'>
           <div className='heading'>
             <h1 className='heading-primary--main'>Register</h1>

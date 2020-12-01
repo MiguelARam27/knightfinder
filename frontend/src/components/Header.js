@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -10,15 +11,18 @@ const Header = () => {
         </div>
         <input type='checkbox' className='nav__link-toggle' id='nav-toggle' />
         <nav class='nav__item-container'>
-          <a href='#' class='nav__item-container__link u-margin-right-small'>
+          <Link to='/' class='nav__item-container__link u-margin-right-small'>
             About
-          </a>
-          <a href='#' class='nav__item-container__link u-margin-right-small'>
+          </Link>
+          <Link
+            to='/signup'
+            class='nav__item-container__link u-margin-right-small'
+          >
             Sign-up
-          </a>
-          <a href='#' class='nav__item-container__link u-margin-right-small'>
-            Login
-          </a>
+          </Link>
+          <Link to='/' class='nav__item-container__link u-margin-right-small'>
+            Sign in
+          </Link>
         </nav>
         <label for='nav-toggle' className='nav__toggle-label'>
           <span></span>

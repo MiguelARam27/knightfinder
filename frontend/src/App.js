@@ -9,12 +9,14 @@ import Login from './components/Login';
 function App() {
   return (
     <>
-      <Header />
       <Router>
+        <Header />
+
         <Route path='/' component={Login} exact />
         <Route path='/signup' component={SignUp} exact />
+
+        <Footer />
       </Router>
-      <Footer />
     </>
   );
 }
