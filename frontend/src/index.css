@@ -462,6 +462,7 @@ a:target {
 
 .signup {
   width: 100%;
+
   height: 80rem;
   background-size: cover;
   background-repeat: no-repeat;
@@ -505,6 +506,128 @@ a:target {
   border-bottom: 3px solid transparent;
   width: 90%;
   transition: all 0.3s;
+}
+
+.about-section {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5rem 10rem;
+  color: #fff;
+  background-color: #000;
+  font-family: 'Montserrat', sans-serif;
+}
+.about-section__description {
+  flex: 1;
+  padding-right: 5rem;
+}
+.about-section__description .title .hide {
+  overflow: hidden;
+}
+.about-section__description h2 {
+  font-weight: lighter;
+  font-size: 4rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.about-section__description p {
+  padding: 3rem 0rem;
+  color: #ccc;
+  font-size: 1.4rem;
+  line-height: 150%;
+}
+.about-section__description span {
+  font-weight: bold;
+  color: #ffc904;
+}
+.about-section__description button {
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  border: 3px solid #ffc904;
+  color: white;
+  transition: all 0.5s ease;
+  background: transparent;
+}
+.about-section__description button:hover {
+  color: #ffc904;
+  background-color: white;
+}
+.about-section .image {
+  flex: 2;
+  overflow: hidden;
+}
+.about-section .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.services {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5rem 10rem;
+  color: #fff;
+  background-color: #000;
+  font-family: 'Montserrat', sans-serif;
+}
+.services h2 {
+  padding-bottom: 5rem;
+  font-weight: lighter;
+  font-size: 4rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.services p {
+  width: 70%;
+  padding: 2rem 0rem 4rem 0rem;
+}
+.services .description {
+  flex: 1;
+}
+.services .description span {
+  font-weight: bold;
+  color: #ffc904;
+}
+.services .description .cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+.services .description .cards .card {
+  flex-basis: 20rem;
+}
+.services .description .cards .card .icon {
+  display: flex;
+  align-items: center;
+}
+.services .description .cards .card .icon i {
+  font-size: 3rem;
+  color: #ffc904;
+}
+.services .description .cards .card .icon h3 {
+  margin-left: 1rem;
+  background-color: #fff;
+  color: #000;
+  padding: 1rem;
+}
+.services .description .cards .card p {
+  padding: 3rem 0rem;
+  color: #ccc;
+  font-size: 1.4rem;
+  line-height: 150%;
+}
+.services .image {
+  flex: 2;
+  overflow: hidden;
+}
+.services .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .footer {
@@ -556,7 +679,6 @@ a:target {
   border-radius: 5px;
 }
 .about .card__grad {
-  /* background-image: url('./img/grad.jpg'); */
   clip-path: polygon(
     20% 0%,
     80% 0%,
@@ -567,14 +689,6 @@ a:target {
     0% 80%,
     0% 20%
   );
-}
-.about .card__sport {
-  /* background-image: url('./img/sport.png'); */
-  color: blue;
-}
-.about .card__major {
-  /* background-image: url('./img/Major.png'); */
-  color: blue;
 }
 
 .nav {

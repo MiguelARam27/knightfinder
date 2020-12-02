@@ -1,8 +1,14 @@
 import React from 'react';
-
+import { motion } from 'framer-motion';
+import { pageAnimation } from '../animation';
 const SignUp = () => {
   return (
-    <>
+    <motion.div
+      variants={pageAnimation}
+      initial='hidden'
+      animate='show'
+      exit='exit'
+    >
       <div
         className='signup'
         style={{ backgroundImage: "url('./img/knight.jpg')" }}
@@ -28,7 +34,7 @@ const SignUp = () => {
           </div>
         </form>
       </div>
-    </>
+    </motion.div>
   );
 };
 
