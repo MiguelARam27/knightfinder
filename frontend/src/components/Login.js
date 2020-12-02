@@ -26,6 +26,7 @@ const Login = () => {
                 className='form__input'
                 placeholder='password'
               />
+              <button>Login</button>
             </div>
           </form>
         </div>

@@ -444,6 +444,20 @@ a:target {
   width: 100%;
   height: 70%;
 }
+.login .form__container button {
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  border: 3px solid #ffc904;
+  color: white;
+  transition: all 0.5s ease;
+  background: transparent;
+}
+.login .form__container button:hover {
+  color: #ffc904;
+  background-color: white;
+}
 .login .form__input {
   font-size: 1.5rem;
   padding: 1.5rem 2rem;
