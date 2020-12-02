@@ -13,16 +13,16 @@ function App() {
     <>
       <Header />
       <AnimatePresence exitBeforeEnter>
-        <Switch location={location} key={location.pathname}>
-          <div
-            className='landing'
-            style={{ backgroundColor: 'rgba(0, 0, 0, 0.97)' }}
-          >
-            <Route path='/' component={Login} exact />
+        <div
+          className='landing'
+          style={{ backgroundColor: 'rgba(0, 0, 0, 0.97)' }}
+        >
+          <Switch location={location} key={location.pathname}>
+            <Route path='/' component={LandingScreen} exact />
             <Route path='/signup' component={SignUp} exact />
-            <Route path='/about' component={LandingScreen} exact />
-          </div>
-        </Switch>
+            <Route path='/login' component={Login} exact />
+          </Switch>
+        </div>
       </AnimatePresence>
       <Footer />
     </>

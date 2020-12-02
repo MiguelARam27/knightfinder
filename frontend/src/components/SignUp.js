@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { pageAnimation } from '../animation';
+import { pageAnimation } from './animation/Animation';
 const SignUp = () => {
   return (
     <motion.div

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { pageAnimation } from '../animation';
+import { pageAnimation, fade } from './animation/Animation';
 const Login = () => {
   return (
     <motion.div
@@ -9,7 +9,8 @@ const Login = () => {
       animate='show'
       exit='exit'
     >
-      <div
+      <motion.div
+        variants={fade}
         className='login'
         style={{ backgroundImage: "url('./img/student.jpg')" }}
       >
@@ -28,7 +29,7 @@ const Login = () => {
             </div>
           </form>
         </div>
-      </div>
+      </motion.div>
     </motion.div>
   );
 };

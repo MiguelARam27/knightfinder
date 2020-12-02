@@ -1,33 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { pageAnimation } from '../animation';
+import {
+  pageAnimation,
+  titleAnimation,
+  fade,
+  photoAnimation,
+} from './animation/Animation';
+import { useScroll } from './animation/useScroll';
+import Wave from './Wave';
 
 const About = () => {
-  const titleAnimation = {
-    hidden: {
-      opacity: 0,
-    },
-    show: {
-      opacity: 1,
-      transition: {
-        duration: 0.75,
-        staggerChildren: 1,
-      },
-    },
-  };
-
-  const container = {
-    hidden: { x: 100 },
-    show: {
-      x: 0,
-      transition: {
-        duration: 0.75,
-        ease: 'easeOut',
-        staggerChildren: 1,
-      },
-    },
-  };
-
+  const [element, controls] = useScroll();
   return (
     <motion.div
       variants={pageAnimation}
@@ -36,37 +19,45 @@ const About = () => {
       exit='exit'
     >
       <div className='about-section'>
-        <div className='about-section__description'>
-          <motion.div
-            variants={container}
-            initial='hidden'
-            animate='show'
-            className='title'
-          >
-            <div className='hide'>
+        <div className='about-section__description' style={{ zIndex: '2' }}>
+          <div>
+            <div className='hide' style={{ overflow: 'hidden' }}>
               <motion.h2 variants={titleAnimation}>We connect</motion.h2>
             </div>
-            <div className='hide'>
+            <div className='hide' style={{ overflow: 'hidden' }}>
               <motion.h2 variants={titleAnimation}>you to your</motion.h2>
             </div>
-            <div className='hide'>
+            <div className='hide' style={{ overflow: 'hidden' }}>
               <motion.h2 variants={titleAnimation}>
                 Fellow <span>knights</span>.
               </motion.h2>
             </div>
-          </motion.div>
-          <p>A complementary service for all UCF students </p>
-          <button>Sign up</button>
+          </div>
+          <motion.p variants={fade}>
+            A complementary service for all UCF students{' '}
+          </motion.p>
+          <motion.button variants={fade}>Sign up</motion.button>
         </div>
-        <div className='image'>
-          <img src='../img/Major.jpg' alt='Students discussing info' />
+        <div className='image' style={{ zIndex: '2' }}>
+          <motion.img
+            variants={photoAnimation}
+            src='../img/Major.jpg'
+            alt='Students discussing info'
+          />
         </div>
+        <Wave />
       </div>
 
-      <div className='services'>
+      <motion.div
+        variants={fade}
+        initial='hidden'
+        className='services'
+        ref={element}
+        animate={controls}
+      >
         <div className='description'>
           <h2>
-            Be a <span>Knight</span> forever
+            Be a <span>Knight</span> for life
           </h2>
           <div className='cards'>
             <div className='card'>
@@ -104,7 +95,7 @@ const About = () => {
         <div className='image'>
           <img src='../img/grad.jpg' alt='graduating student' />
         </div>
-      </div>
+      </motion.div>
     </motion.div>
   );
 };

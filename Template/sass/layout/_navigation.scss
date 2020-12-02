@@ -79,7 +79,13 @@
 
       &:hover {
         transform: scale(1.01);
-        border-bottom: 0.2rem solid $color-white;
+        border-bottom: 0.2rem solid $color-secondary-dark;
+        text-shadow: 0.5rem 4rem 2rem rgba(253, 253, 253, 0.2);
+      }
+
+      &__active {
+        transform: scale(1.01);
+        border-bottom: 0.2rem solid $color-secondary-dark;
         text-shadow: 0.5rem 4rem 2rem rgba(253, 253, 253, 0.2);
       }
 

@@ -7,10 +7,26 @@
   color: $color-white;
   background-color: $color-black;
   font-family: 'Montserrat', sans-serif;
+  z-index: 2;
 
+  @include respond(phone) {
+    display: block;
+    padding: 2rem 2rem;
+    text-align: center;
+
+    svg {
+      display: none;
+    }
+  }
   &__description {
     flex: 1;
     padding-right: 5rem;
+    z-index: 2;
+
+    @include respond(phone) {
+      padding-bottom: 2.1rem;
+      z-index: 3;
+    }
 
     .title {
       .hide {
@@ -23,6 +39,7 @@
       font-size: 4rem;
       text-transform: uppercase;
       letter-spacing: 2px;
+      z-index: 2;
     }
     p {
       padding: 3rem 0rem;
@@ -58,6 +75,9 @@
       height: 100%;
       object-fit: cover;
     }
+    @include respond(phone) {
+      flex: 1;
+    }
   }
 }
 
@@ -70,6 +90,11 @@
   color: $color-white;
   background-color: $color-black;
   font-family: 'Montserrat', sans-serif;
+  @include respond(phone) {
+    display: block;
+    padding: 2rem 2rem;
+    text-align: center;
+  }
 
   h2 {
     padding-bottom: 5rem;
@@ -91,6 +116,9 @@
     .cards {
       display: flex;
       flex-wrap: wrap;
+      @include respond(phone) {
+        justify-content: center;
+      }
 
       .card {
         flex-basis: 20rem;
