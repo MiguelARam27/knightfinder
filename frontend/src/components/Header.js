@@ -11,7 +11,10 @@ const Header = () => {
         </div>
         <input type='checkbox' className='nav__link-toggle' id='nav-toggle' />
         <nav class='nav__item-container'>
-          <Link to='/' class='nav__item-container__link u-margin-right-small'>
+          <Link
+            to='/about'
+            class='nav__item-container__link u-margin-right-small'
+          >
             About
           </Link>
           <Link

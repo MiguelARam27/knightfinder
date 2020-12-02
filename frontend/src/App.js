@@ -14,7 +14,7 @@ function App() {
 
         <Route path='/' component={Login} exact />
         <Route path='/signup' component={SignUp} exact />
-
+        <Route path='/about' component={LandingScreen} exact />
         <Footer />
       </Router>
     </>

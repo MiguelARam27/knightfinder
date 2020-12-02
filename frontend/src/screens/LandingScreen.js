@@ -1,7 +1,12 @@
 import React from 'react';
+import About from '../components/About';
 
 const LandingScreen = () => {
-  return <div></div>;
+  return (
+    <>
+      <About />
+    </>
+  );
 };
 
 export default LandingScreen;
