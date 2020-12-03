@@ -350,6 +350,12 @@ a:target {
   border-radius: 0.5rem 0.5rem;
 }
 
+.Loading {
+  height: 50vh;
+  width: 100%;
+  object-fit: contain;
+}
+
 .feature-box {
   background-color: rgba(255, 255, 255, 0.8);
   font-size: 1.5rem;
