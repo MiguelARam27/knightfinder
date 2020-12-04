@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { pageAnimation, fade } from './animation/Animation';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../actions/userActions';
 import Loading from './Loading';
 
-const Login = () => {
+const Login = ({ history, location }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -16,9 +16,14 @@ const Login = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(e);
     dispatch(login(email, password));
   };
+
+  useEffect(() => {
+    if (userInfo) {
+      history.push('/home');
+    }
+  }, [userInfo, history]);
   return (
     <motion.div
       variants={pageAnimation}

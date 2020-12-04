@@ -276,6 +276,7 @@ a:target {
   border-radius: 1rem;
   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.125);
   margin-top: 2rem;
+  overflow: hidden;
 }
 .contact-card__header-image {
   width: 100%;
@@ -288,10 +289,27 @@ a:target {
   width: 6rem;
   height: 6rem;
   margin: auto;
-  background-image: url("https://pbs.twimg.com/profile_images/1252546246373408770/zw_4o6Wh_400x400.jpg");
+  background-image: url("https://writestylesonline.com/wp-content/uploads/2016/08/Follow-These-Steps-for-a-Flawless-Professional-Profile-Picture.jpg");
   background-size: cover;
   background-color: #eeeeee;
   border-radius: 100%;
+}
+.contact-card__class {
+  font-style: italic;
+  font-size: 1.85rem;
+  background-color: #b7a369;
+  width: 80%;
+  margin: 0 auto;
+  color: white;
+  padding: 0.5em 1em;
+}
+.contact-card__major {
+  padding: 0.5em 1em;
+  font-size: 1.85rem;
+  background-color: #b7a369;
+  width: 80%;
+  margin: 0 auto;
+  color: white;
 }
 .contact-card__name {
   margin-top: 3.5rem;
@@ -308,24 +326,12 @@ a:target {
   color: #424242;
   text-decoration: none;
 }
-.contact-card__link:hover {
+.contact-card__link a i {
+  margin: 0 1px;
+  font-size: 1.6rem;
+}
+.contact-card__link a:hover {
   background-color: #fafafa;
-}
-.contact-card__class {
-  font-style: italic;
-  font-size: 1.85rem;
-  background-color: #b7a369;
-  width: 50%;
-  margin: 0 auto;
-  color: white;
-}
-.contact-card__major {
-  font-size: 1.65rem;
-  font-size: 1.85rem;
-  background-color: #b7a369;
-  width: 50%;
-  margin: 0 auto;
-  color: white;
 }
 .contact-card__clubs {
   margin-top: 0.5rem;

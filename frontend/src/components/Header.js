@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 
 const Header = () => {
   const { pathname } = useLocation();
-  console.log(pathname);
+
   return (
     <>
       <header className='nav'>
@@ -37,6 +37,14 @@ const Header = () => {
             }`}
           >
             Sign in
+          </Link>
+          <Link
+            to='/home'
+            className={`nav__item-container__link u-margin-right-small ${
+              pathname === '/home' && 'nav__item-container__link__active'
+            }`}
+          >
+            Home
           </Link>
         </nav>
         <label htmlFor='nav-toggle' className='nav__toggle-label'>

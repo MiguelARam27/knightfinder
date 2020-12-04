@@ -9,7 +9,7 @@
   border-radius: 1rem;
   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.125);
   margin-top: 2rem;
-
+  overflow: hidden;
   // &:hover {
   //   transform: translateY(-0.5em);
   // }
@@ -26,10 +26,27 @@
     width: 6rem;
     height: 6rem;
     margin: auto;
-    background-image: url('https://pbs.twimg.com/profile_images/1252546246373408770/zw_4o6Wh_400x400.jpg');
+    background-image: url('https://writestylesonline.com/wp-content/uploads/2016/08/Follow-These-Steps-for-a-Flawless-Professional-Profile-Picture.jpg');
     background-size: cover;
     background-color: #eeeeee;
     border-radius: 100%;
+  }
+  &__class {
+    font-style: italic;
+    font-size: 1.85rem;
+    background-color: $color-primary;
+    width: 80%;
+    margin: 0 auto;
+    color: white;
+    padding: 0.5em 1em;
+  }
+  &__major {
+    padding: 0.5em 1em;
+    font-size: 1.85rem;
+    background-color: $color-primary;
+    width: 80%;
+    margin: 0 auto;
+    color: white;
   }
 
   &__name {
@@ -47,27 +64,16 @@
     a {
       color: #424242;
       text-decoration: none;
-    }
-    &:hover {
-      background-color: #fafafa;
-    }
-  }
 
-  &__class {
-    font-style: italic;
-    font-size: 1.85rem;
-    background-color: $color-primary;
-    width: 50%;
-    margin: 0 auto;
-    color: white;
-  }
-  &__major {
-    font-size: 1.65rem;
-    font-size: 1.85rem;
-    background-color: $color-primary;
-    width: 50%;
-    margin: 0 auto;
-    color: white;
+      i {
+        margin: 0 1px;
+        font-size: 1.6rem;
+      }
+
+      &:hover {
+        background-color: #fafafa;
+      }
+    }
   }
 
   &__clubs {
