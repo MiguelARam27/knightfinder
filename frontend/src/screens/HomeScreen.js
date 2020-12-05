@@ -1,8 +1,16 @@
-import React from 'react';
-
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
 import { fade, pageAnimation } from '../components/animation/Animation';
-const HomeScreen = () => {
+const HomeScreen = ({ history }) => {
+  const userLogin = useSelector((state) => state.userLogin);
+  const { loading, error, userInfo } = userLogin;
+
+  useEffect(() => {
+    if (!userInfo) {
+      history.push('/login');
+    }
+  }, [userInfo]);
   return (
     <>
       <motion.div initial='hidden' animate='show' exit='exit' className='home'>

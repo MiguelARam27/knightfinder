@@ -288,7 +288,7 @@ a:target {
 .contact-card__avatar {
   width: 6rem;
   height: 6rem;
-  margin: auto;
+  margin: 0 auto;
   background-image: url("https://writestylesonline.com/wp-content/uploads/2016/08/Follow-These-Steps-for-a-Flawless-Professional-Profile-Picture.jpg");
   background-size: cover;
   background-color: #eeeeee;
@@ -819,6 +819,7 @@ a:target {
   transform: scale(1.01);
   border-bottom: 0.2rem solid #ffc904;
   text-shadow: 0.5rem 4rem 2rem rgba(253, 253, 253, 0.2);
+  cursor: pointer;
 }
 .nav__item-container__link__active {
   transform: scale(1.01);

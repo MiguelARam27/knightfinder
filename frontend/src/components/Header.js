@@ -1,9 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../actions/userActions';
 
 const Header = () => {
   const { pathname } = useLocation();
+  const dispatch = useDispatch();
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+
+  const logoutHandler = () => {
+    dispatch(logout());
+  };
 
   return (
     <>
@@ -14,38 +23,44 @@ const Header = () => {
         </div>
         <input type='checkbox' className='nav__link-toggle' id='nav-toggle' />
         <nav className='nav__item-container'>
-          <Link
-            to='/'
-            className={`nav__item-container__link u-margin-right-small ${
-              pathname === '/' && 'nav__item-container__link__active'
-            }`}
-          >
-            About
-          </Link>
-          <Link
-            to='/signup'
-            className={`nav__item-container__link u-margin-right-small ${
-              pathname === '/signup' && 'nav__item-container__link__active'
-            }`}
-          >
-            Sign-up
-          </Link>
-          <Link
-            to='/login'
-            className={`nav__item-container__link u-margin-right-small ${
-              pathname === '/login' && 'nav__item-container__link__active'
-            }`}
-          >
-            Sign in
-          </Link>
-          <Link
-            to='/home'
-            className={`nav__item-container__link u-margin-right-small ${
-              pathname === '/home' && 'nav__item-container__link__active'
-            }`}
-          >
-            Home
-          </Link>
+          {userInfo ? (
+            <>
+              <a
+                to='/home'
+                className='nav__item-container__link u-margin-right-small '
+                onClick={logoutHandler}
+              >
+                Logout
+              </a>
+            </>
+          ) : (
+            <>
+              <Link
+                to='/'
+                className={`nav__item-container__link u-margin-right-small ${
+                  pathname === '/' && 'nav__item-container__link__active'
+                }`}
+              >
+                About
+              </Link>
+              <Link
+                to='/signup'
+                className={`nav__item-container__link u-margin-right-small ${
+                  pathname === '/signup' && 'nav__item-container__link__active'
+                }`}
+              >
+                Sign-up
+              </Link>
+              <Link
+                to='/login'
+                className={`nav__item-container__link u-margin-right-small ${
+                  pathname === '/login' && 'nav__item-container__link__active'
+                }`}
+              >
+                Sign in
+              </Link>
+            </>
+          )}
         </nav>
         <label htmlFor='nav-toggle' className='nav__toggle-label'>
           <span></span>
