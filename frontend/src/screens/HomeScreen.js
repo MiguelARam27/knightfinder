@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
-import { fade, pageAnimation } from '../components/animation/Animation';
+
 const HomeScreen = ({ history }) => {
   const userLogin = useSelector((state) => state.userLogin);
   const { loading, error, userInfo } = userLogin;

@@ -4,6 +4,7 @@ import { pageAnimation, fade } from './animation/Animation';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../actions/userActions';
 import Loading from './Loading';
+import Message from './Message';
 
 const Login = ({ history, location }) => {
   const [email, setEmail] = useState('');
@@ -61,6 +62,7 @@ const Login = ({ history, location }) => {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                   <button>Login</button>
+                  {error && <Message variant='danger'>{error}</Message>}
                 </div>
               </>
             )}
