@@ -69,7 +69,7 @@ const getUsers = asyncHandler(async (req, res) => {
 //access public
 const getUserInfo = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id).select('-password');
-  const profile = await Profile.find({ user: req.user._id });
+  const profile = await Profile.findOne({ user: req.user._id });
 
   if (user && profile) {
     res.json({

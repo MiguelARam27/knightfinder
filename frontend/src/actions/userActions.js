@@ -33,10 +33,6 @@ export const login = (email, password) => async (dispatch, getState) => {
     });
     localStorage.setItem('userInfo', JSON.stringify(data));
 
-    // const {
-    //   userLogin: { userInfo },
-    // } = getState();
-    // console.log(userInfo);
     dispatch(getUserDetails());
   } catch (error) {
     dispatch({
@@ -72,6 +68,8 @@ export const getUserDetails = () => async (dispatch, getState) => {
       type: USER_DETAILS_SUCCESS,
       payload: data,
     });
+
+    localStorage.setItem('userDetails', JSON.stringify(data));
   } catch (error) {
     dispatch({
       type: USER_DETAILS_FAIL,
@@ -85,6 +83,8 @@ export const getUserDetails = () => async (dispatch, getState) => {
 
 export const logout = () => (dispatch) => {
   localStorage.removeItem('userInfo');
+  localStorage.removeItem('userDetails');
   dispatch({ type: USER_LOGOUT });
   dispatch({ type: USER_DETAILS_RESET });
+  window.location.href = '/';
 };
