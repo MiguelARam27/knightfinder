@@ -5,8 +5,20 @@ const ProfileSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user',
   },
+  name: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+  },
   gradYear: {
     type: Number,
+    required: true,
+  },
+  phone: {
+    type: String,
     required: true,
   },
   major: {

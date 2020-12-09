@@ -11,8 +11,6 @@ const Header = () => {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
-  console.log(pathname);
-
   return (
     <>
       <header className='nav'>

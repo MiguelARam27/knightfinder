@@ -12,7 +12,7 @@ import {
   getFriends,
 } from '../controllers/profileController.js';
 
-router.route('/').post(protect, userProfile).get(protect, userProfiles);
+router.route('/').post(protect, userProfile).get(protect, userProfileInfo);
 router
   .route('/clubs')
   .post(protect, userProfileClubs)
@@ -23,5 +23,5 @@ router
   .delete(protect, removeFriend);
 router.route('/friends').get(protect, getFriends);
 
-router.route('/:id').get(protect, userProfileInfo);
+router.route('/profiles').get(protect, userProfiles);
 export default router;

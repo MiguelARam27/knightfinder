@@ -10,11 +10,14 @@ const userProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
 
   if (user) {
-    const { gradYear, major } = req.body;
+    const { gradYear, major, name, email, phone } = req.body;
 
     const profileFields = {
+      name,
+      email,
       gradYear,
       major,
+      phone,
     };
 
     let profile = await Profile.findOneAndUpdate(
@@ -103,7 +106,7 @@ const userProfiles = asyncHandler(async (req, res) => {
 //@route GET /api/profile/:id
 //access private
 const userProfileInfo = asyncHandler(async (req, res) => {
-  const profile = await Profile.findById(req.params.id);
+  const profile = await Profile.findOne({ user: req.user._id });
 
   if (profile) {
     res.json(profile);
