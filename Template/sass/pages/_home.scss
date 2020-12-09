@@ -8,6 +8,10 @@
     padding: 2rem 0.5rem;
   }
 
+  &.home__container__card {
+    margin-top: 4rem !important;
+  }
+
   &__container {
     position: relative;
     height: auto;
@@ -18,50 +22,11 @@
     justify-items: center;
     align-items: space-around;
     border-radius: 1rem;
-    border: 1px solid white;
+
     background-color: white;
     padding-top: 2rem;
     padding-bottom: 4rem;
     // background-color: green;
     gap: 2.4rem;
-    .link-wrapper {
-      position: absolute;
-      top: -10%;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-
-      &__button {
-        font-family: 'Montserrat', sans-serif;
-        position: relative;
-        outline: none;
-        border: none;
-
-        background-color: $color-black;
-        font-size: 2.4rem;
-        font-weight: 5rem;
-        color: white;
-        letter-spacing: 0.5rem;
-        padding: 1rem 2rem;
-        margin-left: 0.5rem;
-        transition: all 0.4s ease;
-
-        box-shadow: 0 1.2rem $color-grey-dark-3;
-        &:hover {
-          cursor: pointer;
-          top: 0.6rem;
-          box-shadow: 0 0.6rem $color-grey-dark-3;
-        }
-        &:active {
-          box-shadow: none;
-        }
-        border-radius: 2rem 2rem;
-        @include respond(phone) {
-          padding: 1rem 2.5rem;
-          font-size: 2.5rem;
-          letter-spacing: 0.2rem;
-        }
-      }
-    }
   }
 }

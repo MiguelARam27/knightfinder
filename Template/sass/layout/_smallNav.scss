@@ -1,0 +1,39 @@
+.link-wrapper {
+  position: absolute;
+  top: -5%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  &__button {
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    outline: none;
+    border: none;
+
+    background-color: $color-black;
+    font-size: 2.4rem;
+    font-weight: 5rem;
+    color: white;
+    letter-spacing: 0.5rem;
+    padding: 1rem 2rem;
+    margin-left: 0.5rem;
+    transition: all 0.4s ease;
+
+    box-shadow: 0 1.2rem $color-grey-dark-3;
+    &:hover {
+      cursor: pointer;
+      top: 0.6rem;
+      box-shadow: 0 0.6rem $color-grey-dark-3;
+    }
+    &:active {
+      box-shadow: none;
+    }
+    border-radius: 2rem 2rem;
+    @include respond(phone) {
+      padding: 1rem 2.5rem;
+      font-size: 2.5rem;
+      letter-spacing: 0.2rem;
+    }
+  }
+}

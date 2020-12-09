@@ -46,13 +46,14 @@ const Login = ({ history, location }) => {
                 <div className='heading'>
                   <h1 className='heading-primary--main'>login</h1>
                 </div>
-                <div className='form__container'>
+                <form className='form__container'>
                   <input
                     type='email'
                     className='form__input'
                     placeholder='email'
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    name='email'
                   />
                   <input
                     type='password'
@@ -60,10 +61,13 @@ const Login = ({ history, location }) => {
                     placeholder='password'
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    name='password'
                   />
-                  <button>Login</button>
+                  <button type='button' onClick={submitHandler}>
+                    Login
+                  </button>
                   {error && <Message variant='danger'>{error}</Message>}
-                </div>
+                </form>
               </>
             )}
           </form>

@@ -1,0 +1,86 @@
+.profile {
+  padding: 4rem 4rem;
+  background-color: rgba(255, 201, 4, 0.5);
+  height: auto;
+  min-height: 100vh;
+  position: relative;
+  @include respond(phone) {
+    padding: 2rem 0.5rem;
+  }
+  &__container {
+    position: relative;
+    height: auto;
+    min-height: 100%;
+    margin-top: 5rem;
+    background-color: $color-white;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    border-radius: 1rem;
+    h1 {
+      color: black;
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 5rem !important;
+      letter-spacing: 0.4rem;
+    }
+  }
+  &__Form {
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-flow: column;
+
+    &__input-container {
+      width: 50%;
+
+      display: flex;
+      justify-content: space-between;
+      margin: 1.2rem 0;
+      @include respond(phone) {
+        width: 100%;
+      }
+      label {
+        font-size: 1.8rem;
+        font-size: 'Lato', sans-serif;
+        text-align: center;
+        @include respond(phone) {
+          font-size: 1.5rem;
+        }
+        width: 20%;
+        padding: 1.5rem 2rem;
+      }
+      input {
+        font-size: 1.5rem;
+        padding: 1.5rem 2rem;
+        border-radius: 2px;
+        background-color: black;
+        border: none;
+        border-bottom: 3px solid transparent;
+        width: 80%;
+        transition: all 0.3s;
+        color: white !important;
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      button {
+        font-weight: bold;
+        font-size: 1.1rem;
+        cursor: pointer;
+        padding: 1rem 2rem;
+        border: 3px solid $color-secondary-dark;
+        color: white;
+        transition: all 0.5s ease;
+        background: transparent;
+        background-color: black;
+        &:hover {
+          color: $color-secondary-dark;
+          background-color: white;
+        }
+      }
+    }
+  }
+}

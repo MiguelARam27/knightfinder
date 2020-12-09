@@ -137,16 +137,6 @@ a:target {
   }
 }
 
-.paragraph {
-  font-size: "Lato", sans-serif;
-  font-weight: 400;
-  font-size: 2.4rem;
-  margin-left: 2.5rem;
-  margin-right: 2.5rem;
-  text-align: center;
-  padding: 0 1.2rem;
-}
-
 .u-center-text {
   text-align: center !important;
 }
@@ -827,42 +817,14 @@ a:target {
   text-align: center;
 }
 
-.home {
-  padding: 4rem 4rem;
-  background-color: rgba(255, 201, 4, 0.5);
-  height: auto;
-  min-height: 100rem;
-  position: relative;
-}
-@media only screen and (max-width: 37.5em) {
-  .home {
-    padding: 2rem 0.5rem;
-  }
-}
-.home__container {
-  position: relative;
-  height: auto;
-  min-height: 100%;
-  margin-top: 5rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  justify-items: center;
-  align-items: space-around;
-  border-radius: 1rem;
-  border: 1px solid white;
-  background-color: white;
-  padding-top: 2rem;
-  padding-bottom: 4rem;
-  gap: 2.4rem;
-}
-.home__container .link-wrapper {
+.link-wrapper {
   position: absolute;
-  top: -10%;
+  top: -5%;
   width: 100%;
   display: flex;
   justify-content: center;
 }
-.home__container .link-wrapper__button {
+.link-wrapper__button {
   font-family: "Montserrat", sans-serif;
   position: relative;
   outline: none;
@@ -878,20 +840,140 @@ a:target {
   box-shadow: 0 1.2rem #333;
   border-radius: 2rem 2rem;
 }
-.home__container .link-wrapper__button:hover {
+.link-wrapper__button:hover {
   cursor: pointer;
   top: 0.6rem;
   box-shadow: 0 0.6rem #333;
 }
-.home__container .link-wrapper__button:active {
+.link-wrapper__button:active {
   box-shadow: none;
 }
 @media only screen and (max-width: 37.5em) {
-  .home__container .link-wrapper__button {
+  .link-wrapper__button {
     padding: 1rem 2.5rem;
     font-size: 2.5rem;
     letter-spacing: 0.2rem;
   }
+}
+
+.home {
+  padding: 4rem 4rem;
+  background-color: rgba(255, 201, 4, 0.5);
+  height: auto;
+  min-height: 100rem;
+  position: relative;
+}
+@media only screen and (max-width: 37.5em) {
+  .home {
+    padding: 2rem 0.5rem;
+  }
+}
+.home.home__container__card {
+  margin-top: 4rem !important;
+}
+.home__container {
+  position: relative;
+  height: auto;
+  min-height: 100%;
+  margin-top: 5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-items: center;
+  align-items: space-around;
+  border-radius: 1rem;
+  background-color: white;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+  gap: 2.4rem;
+}
+
+.profile {
+  padding: 4rem 4rem;
+  background-color: rgba(255, 201, 4, 0.5);
+  height: auto;
+  min-height: 100vh;
+  position: relative;
+}
+@media only screen and (max-width: 37.5em) {
+  .profile {
+    padding: 2rem 0.5rem;
+  }
+}
+.profile__container {
+  position: relative;
+  height: auto;
+  min-height: 100%;
+  margin-top: 5rem;
+  background-color: #fff;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+  border-radius: 1rem;
+}
+.profile__container h1 {
+  color: black;
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 5rem !important;
+  letter-spacing: 0.4rem;
+}
+.profile__Form {
+  width: 80%;
+  height: auto;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+}
+.profile__Form__input-container {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  margin: 1.2rem 0;
+}
+@media only screen and (max-width: 37.5em) {
+  .profile__Form__input-container {
+    width: 100%;
+  }
+}
+.profile__Form__input-container label {
+  font-size: 1.8rem;
+  font-size: "Lato", sans-serif;
+  text-align: center;
+  width: 20%;
+  padding: 1.5rem 2rem;
+}
+@media only screen and (max-width: 37.5em) {
+  .profile__Form__input-container label {
+    font-size: 1.5rem;
+  }
+}
+.profile__Form__input-container input {
+  font-size: 1.5rem;
+  padding: 1.5rem 2rem;
+  border-radius: 2px;
+  background-color: black;
+  border: none;
+  border-bottom: 3px solid transparent;
+  width: 80%;
+  transition: all 0.3s;
+  color: white !important;
+  font-family: "Montserrat", sans-serif;
+}
+.profile__Form__input-container button {
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  border: 3px solid #ffc904;
+  color: white;
+  transition: all 0.5s ease;
+  background: transparent;
+  background-color: black;
+}
+.profile__Form__input-container button:hover {
+  color: #ffc904;
+  background-color: white;
 }
 
 /*# sourceMappingURL=index.css.map */

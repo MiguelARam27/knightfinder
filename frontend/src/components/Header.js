@@ -2,17 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../actions/userActions';
+
+import HomeNav from './HomeNav';
 
 const Header = () => {
   const { pathname } = useLocation();
-  const dispatch = useDispatch();
+
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
-  const logoutHandler = () => {
-    dispatch(logout());
-  };
+  console.log(pathname);
 
   return (
     <>
@@ -24,15 +23,7 @@ const Header = () => {
         <input type='checkbox' className='nav__link-toggle' id='nav-toggle' />
         <nav className='nav__item-container'>
           {userInfo ? (
-            <>
-              <a
-                to='/home'
-                className='nav__item-container__link u-margin-right-small '
-                onClick={logoutHandler}
-              >
-                Logout
-              </a>
-            </>
+            <HomeNav />
           ) : (
             <>
               <Link

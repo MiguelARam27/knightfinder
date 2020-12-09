@@ -9,12 +9,10 @@ const HomeScreen = ({ history }) => {
   const { loading, error, userInfo } = userLogin;
 
   const userDetails = useSelector((state) => state.userDetails);
-  console.log(userDetails);
-  console.log(userLogin);
+
   const { profileInfo } = userDetails;
 
   useEffect(() => {
-    console.log(userInfo);
     if ((userInfo && profileInfo) === null || undefined) {
       history.push('/login');
     }
@@ -24,16 +22,6 @@ const HomeScreen = ({ history }) => {
     <>
       <motion.div initial='hidden' animate='show' exit='exit' className='home'>
         <div className='home__container'>
-          {/* <div className='link-wrapper'>
-            <Link to='/profile'>
-              {' '}
-              <button className='link-wrapper__button'>MY PROFILE</button>
-            </Link>
-
-            <button className='link-wrapper__button'>MY PROFILE</button>
-            <button className='link-wrapper__button'>MY PROFILE</button>
-          </div> */}
-          <HomeNav />
           <div className='home__container__card contact-card'>
             <div className='contact-card__header-image'>
               <div className='contact-card__avatar'></div>
