@@ -960,18 +960,24 @@ a:target {
   color: white !important;
   font-family: "Montserrat", sans-serif;
 }
-.profile__Form__input-container button {
+.profile__Form__submit {
+  margin: 1.4rem 0;
+  width: 50%;
+  text-align: center;
+}
+.profile__Form__submit .button {
+  width: 50%;
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   cursor: pointer;
-  padding: 1rem 2rem;
+  padding: 1.2rem 2rem;
   border: 3px solid #ffc904;
   color: white;
   transition: all 0.5s ease;
   background: transparent;
   background-color: black;
 }
-.profile__Form__input-container button:hover {
+.profile__Form__submit .button:hover {
   color: #ffc904;
   background-color: white;
 }
