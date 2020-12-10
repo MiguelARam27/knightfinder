@@ -103,7 +103,7 @@ const userProfiles = asyncHandler(async (req, res) => {
 });
 
 //@desc GET one user profile
-//@route GET /api/profile/:id
+//@route GET /api/profile
 //access private
 const userProfileInfo = asyncHandler(async (req, res) => {
   const profile = await Profile.findOne({ user: req.user._id });

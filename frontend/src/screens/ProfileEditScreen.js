@@ -9,8 +9,6 @@ import Message from '../components/Message';
 const ProfileEditScreen = ({ history }) => {
   const [name, setName] = useState('name');
   const [email, setEmail] = useState('email');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
   const [phone, setPhone] = useState('phone number');
   const [major, setMajor] = useState('major');
   const [gradYear, setGradYear] = useState('Graduation Year');
@@ -29,20 +27,28 @@ const ProfileEditScreen = ({ history }) => {
 
   //user update state
   const userUpdatedInfo = useSelector((state) => state.updateUserProfile);
-  const { success } = userUpdatedInfo;
+  const { success, loading } = userUpdatedInfo;
 
   const dispatch = useDispatch();
+  const delayFunc = () => {
+    setTimeout(() => {
+      setMessage('');
+    }, 2000);
+  };
 
   useEffect(() => {
     if ((userInfo && profileInfo) === null || undefined) {
       history.push('/login');
     } else {
-      if (!userInfo || !userInfo.name) {
+      if (!profileInfo || !profileInfo.name) {
         dispatch(getUserDetails());
+        console.log('aqu');
       } else if (success) {
-        dispatch({ type: USER_UPDATE_PROFILE_RESET });
         dispatch(getUserDetails());
-        setMessage('');
+        dispatch({
+          type: USER_UPDATE_PROFILE_RESET,
+        });
+        delayFunc();
       } else {
         setName(profileInfo.name);
         setEmail(profileInfo.email);
@@ -56,9 +62,7 @@ const ProfileEditScreen = ({ history }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    if (password !== confirmPassword) {
-      setMessage('passwords do not match');
-    }
+
     dispatch(updateUserProfile({ name, email, phone, major, gradYear }));
     setMessage('success');
   };
@@ -100,26 +104,7 @@ const ProfileEditScreen = ({ history }) => {
               }}
             />
           </div>
-          <div className='profile__Form__input-container'>
-            <label htmlFor='password'>password</label>
-            <input
-              type='password'
-              name='password'
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-            />
-          </div>
-          <div className='profile__Form__input-container'>
-            <label htmlFor='confirm password'>confirm password</label>
-            <input
-              type='password'
-              name='confirm password'
-              onChange={(e) => {
-                setConfirmPassword(e.target.value);
-              }}
-            />
-          </div>
+
           <div className='profile__Form__input-container'>
             <label htmlFor='major'>major</label>
             <input
@@ -146,8 +131,8 @@ const ProfileEditScreen = ({ history }) => {
           <div className='profile__Form__submit'>
             <input type='submit' className='button' />
           </div>
-          {success && <Message>{message}</Message>}
         </form>
+        {message !== '' && <Message>{message}</Message>}
       </div>
     </motion.div>
   );
