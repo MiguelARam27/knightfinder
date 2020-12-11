@@ -21,11 +21,16 @@ body {
     font-weight: 800;
     font-family: 'Montserrat', sans-serif;
     font-size: 5.5rem;
-    letter-spacing: 2.5rem;
+    letter-spacing: 2rem;
     color: $color-white;
     text-transform: uppercase;
     margin-top: 3rem;
 
+    @include respond(tab-land) {
+      letter-spacing: 0.5rem;
+
+      font-size: 4rem;
+    }
     @include respond(phone) {
       letter-spacing: 1rem;
 

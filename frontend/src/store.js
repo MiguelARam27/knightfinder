@@ -5,9 +5,11 @@ import {
   userLoginReducer,
   userDetailsReducer,
   userUpdateReducer,
+  userRegisterReducer,
 } from './reducers/userReducers';
 
 const reducer = combineReducers({
+  userRegister: userRegisterReducer,
   userLogin: userLoginReducer,
   userDetails: userDetailsReducer,
   updateUserProfile: userUpdateReducer,

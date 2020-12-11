@@ -31,6 +31,7 @@ const Login = ({ history, location }) => {
       initial='hidden'
       animate='show'
       exit='exit'
+      className='example'
     >
       <motion.div
         variants={fade}

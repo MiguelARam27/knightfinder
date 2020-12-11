@@ -27,7 +27,7 @@ const ProfileEditScreen = ({ history }) => {
 
   //user update state
   const userUpdatedInfo = useSelector((state) => state.updateUserProfile);
-  const { success, loading } = userUpdatedInfo;
+  const { success } = userUpdatedInfo;
 
   const dispatch = useDispatch();
   const delayFunc = () => {

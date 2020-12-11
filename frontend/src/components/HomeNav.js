@@ -30,12 +30,12 @@ const HomeNav = () => {
         Profile
       </Link>
       <Link
-        to='/find'
+        to='/search'
         className={`nav__item-container__link u-margin-right-small ${
-          pathname === '/find' && 'nav__item-container__link__active'
+          pathname === '/search' && 'nav__item-container__link__active'
         }`}
       >
-        Find Friends
+        Search knights
       </Link>
       <a
         href='/'

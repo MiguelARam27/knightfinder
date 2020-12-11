@@ -109,7 +109,7 @@ a:target {
   font-weight: 800;
   font-family: "Montserrat", sans-serif;
   font-size: 5.5rem;
-  letter-spacing: 2.5rem;
+  letter-spacing: 2rem;
   color: #fff;
   text-transform: uppercase;
   margin-top: 3rem;
@@ -117,6 +117,12 @@ a:target {
       animation-delay: 3s;
       animation-iteration-count: 3;
       */
+}
+@media only screen and (max-width: 75em) {
+  .heading-primary--main {
+    letter-spacing: 0.5rem;
+    font-size: 4rem;
+  }
 }
 @media only screen and (max-width: 37.5em) {
   .heading-primary--main {
@@ -317,7 +323,7 @@ a:target {
 @media only screen and (max-width: 37.5em) {
   .login {
     background-size: cover;
-    height: 50rem;
+    height: 100vh;
   }
 }
 .login__container {
@@ -346,6 +352,11 @@ a:target {
   display: block;
   color: #b7a369;
 }
+@media only screen and (max-width: 37.5em) {
+  .login .heading h1 {
+    font-size: 8rem;
+  }
+}
 .login .form {
   background-color: rgba(0, 0, 0, 0.85);
   height: 100%;
@@ -356,10 +367,13 @@ a:target {
   text-align: center;
   border-radius: 1.2rem;
   box-shadow: 0rem 2px 100px rgba(255, 255, 255, 0.2);
+  width: 70%;
 }
 @media only screen and (max-width: 37.5em) {
   .login .form {
     border-radius: 0;
+    width: 100%;
+    height: 100%;
   }
 }
 .login .form__container {
@@ -384,6 +398,11 @@ a:target {
   color: #ffc904;
   background-color: white;
 }
+@media only screen and (max-width: 37.5em) {
+  .login .form__container button {
+    font-size: 3.5rem;
+  }
+}
 .login .form__input {
   font-size: 1.5rem;
   padding: 1.5rem 2rem;
@@ -393,6 +412,11 @@ a:target {
   border-bottom: 3px solid transparent;
   width: 90%;
   transition: all 0.3s;
+}
+@media only screen and (max-width: 37.5em) {
+  .login .form__input {
+    font-size: 3.5rem;
+  }
 }
 
 .signup {
@@ -406,13 +430,16 @@ a:target {
   position: absolute;
   top: 10rem;
   right: 10rem;
-  height: 70%;
+  height: auto;
+  min-height: 70%;
   width: 35%;
-  display: grid;
-  grid-template-rows: 0.8fr 1.2fr;
-  justify-items: center;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
   align-items: center;
+  text-align: center;
   background-color: rgba(0, 0, 0, 0.85);
+  padding-bottom: 2rem;
 }
 @media only screen and (max-width: 37.5em) {
   .signup .form {
@@ -421,6 +448,12 @@ a:target {
     right: 0;
     height: 100%;
     width: 100%;
+    min-width: 100%;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .signup .form h1 {
+    font-size: 6rem;
   }
 }
 .signup .form__container {
@@ -440,6 +473,35 @@ a:target {
   border-bottom: 3px solid transparent;
   width: 90%;
   transition: all 0.3s;
+}
+@media only screen and (max-width: 37.5em) {
+  .signup .form__input {
+    font-size: 3.5rem;
+  }
+}
+.signup .form__submit {
+  margin: 1.4rem 0;
+  width: 50%;
+  text-align: center;
+  width: 50%;
+  font-weight: bold;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 1.2rem 2rem;
+  border: 3px solid #ffc904;
+  color: white;
+  transition: all 0.5s ease;
+  background: transparent;
+  background-color: black;
+}
+@media only screen and (max-width: 37.5em) {
+  .signup .form__submit {
+    font-size: 3.5rem;
+  }
+}
+.signup .form__submit:hover {
+  color: #ffc904;
+  background-color: white;
 }
 
 .about-section {

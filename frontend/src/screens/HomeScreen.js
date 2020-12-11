@@ -10,8 +10,12 @@ const HomeScreen = ({ history }) => {
   const { profileInfo } = userDetails;
 
   useEffect(() => {
-    if ((userInfo && profileInfo) === null || undefined) {
+    if (userInfo === null || undefined) {
+      alert('not auth');
       history.push('/login');
+    } else if (profileInfo === null) {
+      console.log('here');
+      history.push('/search');
     }
   }, [userInfo, profileInfo, history]);
 
@@ -23,8 +27,10 @@ const HomeScreen = ({ history }) => {
             <div className='contact-card__header-image'>
               <div className='contact-card__avatar'></div>
             </div>
-            <h1 className='contact-card__name'>{profileInfo.name}</h1>
-            <ul>
+            <h1 className='contact-card__name'>
+              {profileInfo ? profileInfo.name : ''}
+            </h1>
+            {/* <ul>
               <li className='contact-card__class'>
                 class of <b>{profileInfo.gradYear}</b>
               </li>
@@ -54,7 +60,7 @@ const HomeScreen = ({ history }) => {
                   </span>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </motion.div>
