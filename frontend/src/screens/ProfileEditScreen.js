@@ -37,12 +37,11 @@ const ProfileEditScreen = ({ history }) => {
   };
 
   useEffect(() => {
-    if ((userInfo && profileInfo) === null || undefined) {
+    if (!userInfo) {
       history.push('/login');
     } else {
       if (!profileInfo || !profileInfo.name) {
         dispatch(getUserDetails());
-        console.log('aqu');
       } else if (success) {
         dispatch(getUserDetails());
         dispatch({

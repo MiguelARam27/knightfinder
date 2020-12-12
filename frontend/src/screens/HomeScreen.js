@@ -10,14 +10,12 @@ const HomeScreen = ({ history }) => {
   const { profileInfo } = userDetails;
 
   useEffect(() => {
-    if (userInfo === null || undefined) {
-      alert('not auth');
+    if (!userInfo) {
       history.push('/login');
-    } else if (profileInfo === null) {
-      console.log('here');
-      history.push('/search');
+    } else if (userDetails.error || profileInfo === null) {
+      history.push('/profile');
     }
-  }, [userInfo, profileInfo, history]);
+  }, [userInfo, profileInfo, history, userDetails]);
 
   return (
     <>
