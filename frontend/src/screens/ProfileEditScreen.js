@@ -77,7 +77,7 @@ const ProfileEditScreen = ({ history }) => {
               name='email'
               value={email}
               onChange={(e) => {
-                submitHandler(e);
+                setEmail(e.target.value);
               }}
             />
           </div>
