@@ -27,6 +27,7 @@ const FriendSearchScreen = () => {
                 major={profile.major}
                 phone={profile.phone}
                 clubs={profile.clubs}
+                _id={profile._id}
               />
             );
           })}

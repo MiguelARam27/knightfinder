@@ -187,7 +187,8 @@ a:target {
 
 .contact-card {
   width: 35rem;
-  max-height: 35rem;
+  max-height: 50rem;
+  height: auto;
   font-family: "Roboto", sans-serif;
   font-size: 1em;
   line-height: 1.5em;
@@ -197,6 +198,28 @@ a:target {
   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.125);
   margin-top: 2rem;
   overflow: hidden;
+  position: relative;
+}
+.contact-card .add_friend {
+  height: 5rem;
+  width: 5rem;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 50%;
+  background-color: black;
+  color: white;
+  font-size: 2rem;
+}
+.contact-card .add_friend:hover {
+  cursor: pointer;
+  color: #ffc904;
+  background-color: white;
+}
+@media only screen and (max-width: 37.5em) {
+  .contact-card .add_friend {
+    font-size: 3.5rem;
+  }
 }
 .contact-card__header-image {
   width: 100%;
@@ -269,7 +292,7 @@ a:target {
   gap: 1rem;
 }
 .contact-card__clubs__container__club-name {
-  padding: 0.5rem 0.5rem;
+  padding: 0.2rem 0.2 rem;
   color: white;
   font-size: 1.5rem;
   background-color: #000;
@@ -486,7 +509,6 @@ a:target {
   width: 50%;
   font-weight: bold;
   font-size: 1.5rem;
-  cursor: pointer;
   padding: 1.2rem 2rem;
   border: 3px solid #ffc904;
   color: white;
@@ -500,6 +522,7 @@ a:target {
   }
 }
 .signup .form__submit:hover {
+  cursor: pointer;
   color: #ffc904;
   background-color: white;
 }

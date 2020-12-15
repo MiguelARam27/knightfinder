@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { addFriend } from '../actions/profileActions';
 
-const Card = ({ name, gradYear, major, phone, clubs, email }) => {
-  console.log(clubs);
+const Card = ({ name, gradYear, major, phone, clubs, email, _id }) => {
+  const dispatch = useDispatch();
+
+  const addFriendHandler = (e) => {
+    dispatch(addFriend(e.target.getAttribute('_id')));
+  };
+
+  // useEffect(() => {
+
+  // }, [dispatch])
   return (
     <div className='search__container__card contact-card'>
       <div className='contact-card__header-image'>
@@ -40,6 +50,9 @@ const Card = ({ name, gradYear, major, phone, clubs, email }) => {
             })}
         </div>
       </div>
+      <button className='add_friend' _id={_id} onClick={addFriendHandler}>
+        Add
+      </button>
     </div>
   );
 };

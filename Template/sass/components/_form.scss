@@ -164,7 +164,7 @@
       width: 50%;
       font-weight: bold;
       font-size: 1.5rem;
-      cursor: pointer;
+
       padding: 1.2rem 2rem;
       border: 3px solid $color-secondary-dark;
       color: white;
@@ -175,6 +175,7 @@
         font-size: 3.5rem;
       }
       &:hover {
+        cursor: pointer;
         color: $color-secondary-dark;
         background-color: white;
       }

@@ -88,13 +88,23 @@ const userProfileClubsUpdate = asyncHandler(async (req, res) => {
   }
 });
 
-//@desc GET all profiles
-//@route GET /api/profiles
-//access private
 const userProfiles = asyncHandler(async (req, res) => {
-  const profiles = await Profile.find({ user: { $ne: req.user._id } });
+  const userProfile = await Profile.findOne({ user: req.user._id });
+  //filter list that will not show up on search page
+  let filterProfileList = [];
 
-  if (profiles) {
+  //find the user's friends profile id's and add them to filter list
+  userProfile.friends.map((x) => {
+    filterProfileList.push(x.profile);
+  });
+
+  //add the user's profile id to the list so it doesn't show up
+  filterProfileList.push(userProfile._id);
+  const profiles = await Profile.find({
+    _id: { $nin: filterProfileList },
+  });
+
+  if (userProfile && profiles) {
     res.json(profiles);
   } else {
     res.status(404);
@@ -123,6 +133,7 @@ const addFriend = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
   const profile = await Profile.findOne({ user: req.user._id });
 
+  console.log(req.params.id);
   let friend = { profile: req.params.id };
 
   if (profile && user) {
@@ -162,7 +173,7 @@ const removeFriend = asyncHandler(async (req, res) => {
   }
 });
 
-//@desc Get all friends
+//@desc Get all friends profiles that belong to one user.
 //@route Get /api/profile/friends
 //accesss private
 const getFriends = asyncHandler(async (req, res) => {
