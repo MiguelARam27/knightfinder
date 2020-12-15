@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Card = ({ name, gradYear, major, phone, clubs, email }) => {
+  console.log(clubs);
   return (
     <div className='search__container__card contact-card'>
       <div className='contact-card__header-image'>
@@ -26,16 +27,17 @@ const Card = ({ name, gradYear, major, phone, clubs, email }) => {
       <div className='contact-card__clubs'>
         <h1>Clubs</h1>
         <div className='contact-card__clubs__container'>
-          {clubs.map((club, index) => {
-            return (
-              <span
-                className='contact-card__clubs__container__club-name'
-                key={index}
-              >
-                {club}
-              </span>
-            );
-          })}
+          {clubs &&
+            clubs.map((club, index) => {
+              return (
+                <span
+                  className='contact-card__clubs__container__club-name'
+                  key={index}
+                >
+                  {club.clubName}
+                </span>
+              );
+            })}
         </div>
       </div>
     </div>

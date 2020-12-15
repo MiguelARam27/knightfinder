@@ -89,10 +89,10 @@ const userProfileClubsUpdate = asyncHandler(async (req, res) => {
 });
 
 //@desc GET all profiles
-//@route GET /api/profile
+//@route GET /api/profiles
 //access private
 const userProfiles = asyncHandler(async (req, res) => {
-  const profiles = await Profile.find();
+  const profiles = await Profile.find({ user: { $ne: req.user._id } });
 
   if (profiles) {
     res.json(profiles);
