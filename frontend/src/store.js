@@ -11,6 +11,7 @@ import {
   profilesListReducer,
   profileAddFriendReducer,
   profileGetFriendsReducer,
+  profileRemoveFriendReducer,
 } from './reducers/profileReducers';
 
 const reducer = combineReducers({
@@ -20,6 +21,7 @@ const reducer = combineReducers({
   updateUserProfile: userUpdateReducer,
   profilesList: profilesListReducer,
   addFriend: profileAddFriendReducer,
+  removeFriend: profileRemoveFriendReducer,
   userFriends: profileGetFriendsReducer,
 });
 

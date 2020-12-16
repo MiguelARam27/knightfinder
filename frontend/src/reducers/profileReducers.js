@@ -11,6 +11,10 @@ import {
   PROFILE_GET_FRIENDS_SUCCESS,
   PROFILE_GET_FRIENDS_FAIL,
   PROFILE_GET_FRIENDS_RESET,
+  PROFILE_REMOVE_FRIEND_REQUEST,
+  PROFILE_REMOVE_FRIEND_SUCCESS,
+  PROFILE_REMOVE_FRIEND_FAIL,
+  PROFILE_REMOVE_FRIEND_RESET,
 } from '../constants/profileConstants';
 
 export const profilesListReducer = (state = { profiles: [] }, action) => {
@@ -37,6 +41,20 @@ export const profileAddFriendReducer = (state = {}, action) => {
     case PROFILE_ADD_FRIEND_FAIL:
       return { loading: false, success: false, error: action.payload };
     case PROFILE_ADD_FRIEND_RESET:
+      return {};
+    default:
+      return state;
+  }
+};
+export const profileRemoveFriendReducer = (state = {}, action) => {
+  switch (action.type) {
+    case PROFILE_REMOVE_FRIEND_REQUEST:
+      return { loading: true };
+    case PROFILE_REMOVE_FRIEND_SUCCESS:
+      return { loading: false, success: true };
+    case PROFILE_REMOVE_FRIEND_FAIL:
+      return { loading: false, success: false, error: action.payload };
+    case PROFILE_REMOVE_FRIEND_RESET:
       return {};
     default:
       return state;

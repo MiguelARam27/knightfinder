@@ -151,11 +151,11 @@ const addFriend = asyncHandler(async (req, res) => {
 //access private
 const removeFriend = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
-  const profile = await Profile.find({ user: req.user._id });
+  const profile = await Profile.findOne({ user: req.user._id });
 
   let friendExists;
 
-  profile[0].friends.map((x) => {
+  profile.friends.map((x) => {
     if (JSON.stringify(x.profile) === JSON.stringify(req.params.id)) {
       friendExists = true;
     }

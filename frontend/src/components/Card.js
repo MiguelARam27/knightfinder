@@ -1,15 +1,29 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { addFriend } from '../actions/profileActions';
+import {
+  addFriend,
+  removeFriend,
+  getFriends,
+  getProfiles,
+} from '../actions/profileActions';
 import { useLocation } from 'react-router-dom';
 const Card = ({ name, gradYear, major, phone, clubs, email, _id }) => {
   const { pathname } = useLocation();
   const dispatch = useDispatch();
-  console.log(pathname);
+
   const addFriendHandler = (e) => {
     dispatch(addFriend(e.target.getAttribute('_id')));
+    setTimeout(() => {
+      dispatch(getProfiles());
+    }, 1000);
   };
 
+  const removeFriendHandler = (e) => {
+    dispatch(removeFriend(e.target.getAttribute('_id')));
+    setTimeout(() => {
+      dispatch(getFriends());
+    }, 1000);
+  };
   // useEffect(() => {
 
   // }, [dispatch])
@@ -52,7 +66,7 @@ const Card = ({ name, gradYear, major, phone, clubs, email, _id }) => {
         </div>
       </div>
       {pathname && pathname === '/home' ? (
-        <button className='add_friend' _id={_id} onClick={addFriendHandler}>
+        <button className='add_friend' _id={_id} onClick={removeFriendHandler}>
           Remove
         </button>
       ) : (
