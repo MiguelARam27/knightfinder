@@ -14,7 +14,7 @@ import {
 } from '../constants/profileConstants';
 import axios from 'axios';
 
-export const getProfiles = () => async (dispatch, getState) => {
+export const getProfiles = (keyword = '1') => async (dispatch, getState) => {
   try {
     dispatch({
       type: PROFILE_LIST_REQUEST,
@@ -31,7 +31,10 @@ export const getProfiles = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get('/api/profile/profiles', config);
+    const { data } = await axios.get(
+      `/api/profile/profiles?keyword=${keyword}`,
+      config
+    );
     dispatch({
       type: PROFILE_LIST_SUCCESS,
       payload: data,

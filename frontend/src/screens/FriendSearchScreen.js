@@ -4,18 +4,23 @@ import { motion } from 'framer-motion';
 import Search from '../components/Search';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProfiles } from '../actions/profileActions';
+import { Route } from 'react-router-dom';
 
-const FriendSearchScreen = () => {
+const FriendSearchScreen = ({ match }) => {
+  const keyword = match.params.keyword;
+  console.log(keyword);
+  //profileList returned
   const profilesList = useSelector((state) => state.profilesList);
   const { profiles } = profilesList;
+
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getProfiles());
+    dispatch(getProfiles(keyword));
   }, [dispatch]);
   return (
     <motion.div initial='hidden' animate='show' exit='exit' className='search'>
       <div className='search__container'>
-        <Search />
+        <Route render={({ history }) => <Search history={history} />} />
         <div className='home__container__card-container'>
           {profiles &&
             profiles.map((profile, index) => {

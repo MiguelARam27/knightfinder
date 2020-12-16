@@ -22,6 +22,7 @@ function App() {
           <Route path='/home' component={HomeScreen} exact />
           <Route path='/' component={LandingScreen} exact />
           <Route path='/profile' component={ProfileEditScreen} exact />
+          <Route path='/search/:keyword' component={FriendSearchScreen} />
           <Route path='/search' component={FriendSearchScreen} exact />
         </Switch>
       </AnimatePresence>

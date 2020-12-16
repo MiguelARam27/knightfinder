@@ -100,9 +100,20 @@ const userProfiles = asyncHandler(async (req, res) => {
 
   //add the user's profile id to the list so it doesn't show up
   filterProfileList.push(userProfile._id);
-  const profiles = await Profile.find({
-    _id: { $nin: filterProfileList },
-  });
+
+  let profiles;
+  const keyword = req.query.keyword ? req.query.keyword : {};
+
+  if (keyword === '1') {
+    profiles = await Profile.find({ _id: { $nin: filterProfileList } });
+  } else {
+    profiles = await Profile.find({
+      $and: [
+        { _id: { $nin: filterProfileList } },
+        { name: { $regex: keyword, $options: 'i' } },
+      ],
+    });
+  }
 
   if (userProfile && profiles) {
     res.json(profiles);
