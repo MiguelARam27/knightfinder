@@ -128,7 +128,7 @@ const ProfileEditScreen = ({ history }) => {
           </div>
 
           <div className='profile__Form__submit'>
-            <input type='submit' className='button' />
+            <input type='submit' className='button' value={'submit'} />
           </div>
         </form>
         {message !== '' && <Message>{message}</Message>}

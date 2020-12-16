@@ -16,21 +16,23 @@ const FriendSearchScreen = () => {
     <motion.div initial='hidden' animate='show' exit='exit' className='search'>
       <div className='search__container'>
         <Search />
-        {profiles &&
-          profiles.map((profile, index) => {
-            return (
-              <Card
-                key={index}
-                name={profile.name}
-                email={profile.email}
-                gradYear={profile.gradYear}
-                major={profile.major}
-                phone={profile.phone}
-                clubs={profile.clubs}
-                _id={profile._id}
-              />
-            );
-          })}
+        <div className='home__container__card-container'>
+          {profiles &&
+            profiles.map((profile, index) => {
+              return (
+                <Card
+                  key={index}
+                  name={profile.name}
+                  email={profile.email}
+                  gradYear={profile.gradYear}
+                  major={profile.major}
+                  phone={profile.phone}
+                  clubs={profile.clubs}
+                  _id={profile._id}
+                />
+              );
+            })}
+        </div>
         {/* <Card
           name={'yo'}
           email={'garandster28@live.com'}

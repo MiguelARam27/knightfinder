@@ -4,19 +4,21 @@
   height: auto;
   min-height: 100rem;
   position: relative;
+
   @include respond(phone) {
     padding: 2rem 0.5rem;
   }
 
-  &.home__container__card {
-    margin-top: 4rem !important;
-  }
-
   &__container {
     position: relative;
-    height: auto;
-    min-height: 100vh;
-    height: auto;
+
+    min-height: 110vh;
+
+    border-radius: 1rem;
+
+    background-color: white;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
 
     &__title {
       color: $color-black;
@@ -40,11 +42,5 @@
       gap: 2.4rem;
       padding: 2rem 2rem;
     }
-
-    border-radius: 1rem;
-
-    background-color: white;
-    padding-top: 2rem;
-    padding-bottom: 4rem;
   }
 }
