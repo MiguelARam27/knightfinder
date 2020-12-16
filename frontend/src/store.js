@@ -10,6 +10,7 @@ import {
 import {
   profilesListReducer,
   profileAddFriendReducer,
+  profileGetFriendsReducer,
 } from './reducers/profileReducers';
 
 const reducer = combineReducers({
@@ -19,6 +20,7 @@ const reducer = combineReducers({
   updateUserProfile: userUpdateReducer,
   profilesList: profilesListReducer,
   addFriend: profileAddFriendReducer,
+  userFriends: profileGetFriendsReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem('userInfo')

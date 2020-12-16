@@ -177,13 +177,13 @@ const removeFriend = asyncHandler(async (req, res) => {
 //@route Get /api/profile/friends
 //accesss private
 const getFriends = asyncHandler(async (req, res) => {
-  const profile = await Profile.find({ user: req.user._id });
+  const profile = await Profile.findOne({ user: req.user._id });
 
   let friendsList = [];
-  profile[0].friends.map((x) => {
+  profile.friends.map((x) => {
     friendsList.push(x.profile);
   });
-  if (profile && profile[0].friends) {
+  if (profile && profile.friends) {
     let userFriendList = await Profile.find().where('_id').in(friendsList);
     res.json(userFriendList);
   } else {

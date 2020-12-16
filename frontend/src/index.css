@@ -201,12 +201,12 @@ a:target {
   position: relative;
 }
 .contact-card .add_friend {
-  height: 5rem;
-  width: 5rem;
+  height: auto;
+  width: auto;
   display: table-cell;
   text-align: center;
   vertical-align: middle;
-  border-radius: 50%;
+  margin: 0.7rem 0;
   background-color: black;
   color: white;
   font-size: 2rem;
@@ -292,7 +292,7 @@ a:target {
   gap: 1rem;
 }
 .contact-card__clubs__container__club-name {
-  padding: 0.2rem 0.2 rem;
+  padding: 0.4rem 0.4rem;
   color: white;
   font-size: 1.5rem;
   background-color: #000;
@@ -960,17 +960,32 @@ a:target {
 .home__container {
   position: relative;
   height: auto;
-  min-height: 100%;
-  margin-top: 5rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  justify-items: center;
-  align-items: space-around;
+  min-height: 100vh;
+  height: auto;
   border-radius: 1rem;
   background-color: white;
   padding-top: 2rem;
   padding-bottom: 4rem;
+}
+.home__container__title {
+  color: #000;
+  text-transform: uppercase;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  font-weight: 800;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 5rem !important;
+  letter-spacing: 0.4rem;
+}
+.home__container__card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+  justify-items: center;
+  align-items: space-around;
   gap: 2.4rem;
+  padding: 2rem 2rem;
 }
 
 .profile {

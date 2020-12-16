@@ -5,6 +5,9 @@ import {
   PROFILE_ADD_FRIEND_REQUEST,
   PROFILE_ADD_FRIEND_SUCCESS,
   PROFILE_ADD_FRIEND_FAIL,
+  PROFILE_GET_FRIENDS_SUCCESS,
+  PROFILE_GET_FRIENDS_REQUEST,
+  PROFILE_GET_FRIENDS_FAIL,
 } from '../constants/profileConstants';
 import axios from 'axios';
 
@@ -69,6 +72,34 @@ export const addFriend = (id) => async (dispatch, getState) => {
         error.response && error.response.data.message
           ? error.response.data.message
           : error.message,
+    });
+  }
+};
+
+export const getFriends = () => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: PROFILE_GET_FRIENDS_REQUEST,
+    });
+    const {
+      userLogin: { userInfo },
+    } = getState();
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    const { data } = await axios.get(`/api/profile/friends`, config);
+    dispatch({
+      type: PROFILE_GET_FRIENDS_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: PROFILE_GET_FRIENDS_FAIL,
+      payload: error.response && error.response.data.message,
     });
   }
 };

@@ -15,18 +15,36 @@
   &__container {
     position: relative;
     height: auto;
-    min-height: 100%;
-    margin-top: 5rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    justify-items: center;
-    align-items: space-around;
+    min-height: 100vh;
+    height: auto;
+
+    &__title {
+      color: $color-black;
+      text-transform: uppercase;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+
+      font-weight: 800;
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 5rem !important;
+      letter-spacing: 0.4rem;
+    }
+    &__card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+      justify-items: center;
+      align-items: space-around;
+      // background-color: green;
+      gap: 2.4rem;
+      padding: 2rem 2rem;
+    }
+
     border-radius: 1rem;
 
     background-color: white;
     padding-top: 2rem;
     padding-bottom: 4rem;
-    // background-color: green;
-    gap: 2.4rem;
   }
 }

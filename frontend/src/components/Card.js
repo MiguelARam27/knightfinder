@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addFriend } from '../actions/profileActions';
-
+import { useLocation } from 'react-router-dom';
 const Card = ({ name, gradYear, major, phone, clubs, email, _id }) => {
+  const { pathname } = useLocation();
   const dispatch = useDispatch();
-
+  console.log(pathname);
   const addFriendHandler = (e) => {
     dispatch(addFriend(e.target.getAttribute('_id')));
   };
@@ -50,9 +51,15 @@ const Card = ({ name, gradYear, major, phone, clubs, email, _id }) => {
             })}
         </div>
       </div>
-      <button className='add_friend' _id={_id} onClick={addFriendHandler}>
-        Add
-      </button>
+      {pathname && pathname === '/home' ? (
+        <button className='add_friend' _id={_id} onClick={addFriendHandler}>
+          Remove
+        </button>
+      ) : (
+        <button className='add_friend' _id={_id} onClick={addFriendHandler}>
+          Add
+        </button>
+      )}
     </div>
   );
 };

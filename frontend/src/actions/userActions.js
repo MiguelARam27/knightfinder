@@ -16,6 +16,11 @@ import {
   USER_REGISTER_FAIL,
   USER_REGISTER_REQUEST,
 } from '../constants/userConstants';
+import {
+  PROFILE_ADD_FRIEND_RESET,
+  PROFILE_LIST_RESET,
+  PROFILE_GET_FRIENDS_RESET,
+} from '../constants/profileConstants';
 
 export const login = (email, password) => async (dispatch) => {
   try {
@@ -127,6 +132,9 @@ export const logout = () => (dispatch) => {
   dispatch({ type: USER_LOGOUT });
   dispatch({ type: USER_DETAILS_RESET });
   dispatch({ type: USER_UPDATE_PROFILE_RESET });
+  dispatch({ type: PROFILE_ADD_FRIEND_RESET });
+  dispatch({ type: PROFILE_LIST_RESET });
+  dispatch({ type: PROFILE_GET_FRIENDS_RESET });
   window.location.href = '/';
 };
 
