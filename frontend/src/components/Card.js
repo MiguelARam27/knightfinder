@@ -24,28 +24,52 @@ const Card = ({ name, gradYear, major, phone, clubs, email, _id }) => {
       dispatch(getFriends());
     }, 1000);
   };
-  // useEffect(() => {
+  const cardButton = (page) => {
+    switch (page) {
+      case '/search':
+        return (
+          <button className='add_friend' _id={_id} onClick={addFriendHandler}>
+            Add
+          </button>
+        );
+      case '/home':
+        return (
+          <button
+            className='add_friend'
+            _id={_id}
+            onClick={removeFriendHandler}
+          >
+            Remove
+          </button>
+        );
+      default:
+        return <></>;
+    }
+  };
 
-  // }, [dispatch])
   return (
     <div className='search__container__card contact-card'>
       <div className='contact-card__header-image'>
         <div className='contact-card__avatar'></div>
       </div>
-      <h1 className='contact-card__name'>{name}</h1>
+      <h1 className='contact-card__name'>{name ? name : 'name'}</h1>
       <ul>
         <li className='contact-card__class'>
-          class of <b>{gradYear}</b>
+          class of <b>{gradYear ? gradYear : 'graduation Year'}</b>
         </li>
-        <li className='contact-card__major'>Major : {major}</li>
+        <li className='contact-card__major'>
+          Major : {major ? major : 'major'}
+        </li>
         <li className='contact-card__link contact-card__link'>
           <a title='Email Callum Brown' href='mailto:'>
-            <i className='fa fa-envelope'></i> {email}
+            <i className='fa fa-envelope'></i>{' '}
+            {email ? email : 'your email address'}
           </a>
         </li>
         <li className='contact-card__link contact-card__link'>
           <a title='Call Callum Brown' href='tel:'>
-            <i className='fa fa-phone'></i> +1 {phone}
+            <i className='fa fa-phone'></i> +1{' '}
+            {phone ? phone : 'your phone number'}
           </a>
         </li>
       </ul>
@@ -65,7 +89,7 @@ const Card = ({ name, gradYear, major, phone, clubs, email, _id }) => {
             })}
         </div>
       </div>
-      {pathname && pathname === '/home' ? (
+      {/* {pathname && pathname === '/home' ? (
         <button className='add_friend' _id={_id} onClick={removeFriendHandler}>
           Remove
         </button>
@@ -73,7 +97,8 @@ const Card = ({ name, gradYear, major, phone, clubs, email, _id }) => {
         <button className='add_friend' _id={_id} onClick={addFriendHandler}>
           Add
         </button>
-      )}
+      )} */}
+      {pathname && cardButton(pathname)}
     </div>
   );
 };

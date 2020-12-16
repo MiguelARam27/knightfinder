@@ -16,7 +16,7 @@
     padding-top: 2rem;
     padding-bottom: 4rem;
     border-radius: 1rem;
-    h1 {
+    > h1:first-child {
       color: black;
       text-align: center;
       margin-top: 2rem;
@@ -24,10 +24,19 @@
       letter-spacing: 0.4rem;
     }
   }
-  &__Form {
-    width: 80%;
-    height: auto;
+
+  &__container_grid {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
     margin: 0 auto;
+    height: 100%;
+  }
+
+  &__Form {
+    width: 100%;
+    height: auto;
+    // margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,8 +44,7 @@
     flex-flow: column;
 
     &__input-container {
-      width: 50%;
-
+      width: 80%;
       display: flex;
       justify-content: space-between;
       margin: 1.2rem 0;
@@ -86,6 +94,24 @@
           background-color: white;
         }
       }
+    }
+  }
+
+  &__card-display {
+    width: 100%;
+    & > div:first-of-type {
+      margin: 0 auto;
+    }
+    & > h2:first-child {
+      font-size: 4rem;
+      color: black;
+      text-transform: uppercase;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      margin-bottom: 2rem;
+      font-weight: 800;
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
     }
   }
 }
