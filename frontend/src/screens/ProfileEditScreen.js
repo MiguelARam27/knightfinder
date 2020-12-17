@@ -84,7 +84,6 @@ const ProfileEditScreen = ({ history }) => {
         setShow(true);
         clearMessage();
       } else {
-        console.log('here');
         setName(profileInfo.name);
         setEmail(profileInfo.email);
         setPhone(profileInfo.phone);
@@ -170,7 +169,9 @@ const ProfileEditScreen = ({ history }) => {
                     }}
                   />
                 </div>
-                <button onClick={addClub}>Add Club</button>
+                <button onClick={addClub} className='addButton'>
+                  Add Club
+                </button>
                 {groups &&
                   groups.map((club, index) => {
                     return (
@@ -178,7 +179,7 @@ const ProfileEditScreen = ({ history }) => {
                         className='profile__Form__input-container'
                         key={index}
                       >
-                        <label htmlFor='gradYear'>Club Name</label>
+                        <label htmlFor='gradYear'>Club</label>
                         <input
                           type='text'
                           name='club'
@@ -191,7 +192,9 @@ const ProfileEditScreen = ({ history }) => {
                 {groups.length === 0 ? (
                   <></>
                 ) : (
-                  <button onClick={removeClub}>Remove Last Club</button>
+                  <button onClick={removeClub} className='removeButton'>
+                    Remove Last Club
+                  </button>
                 )}
                 <div className='profile__Form__submit'>
                   <input type='submit' className='button' value={'submit'} />
