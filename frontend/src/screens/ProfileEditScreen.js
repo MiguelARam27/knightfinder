@@ -9,16 +9,53 @@ import Card from '../components/Card';
 import Loading from '../components/Loading';
 
 const ProfileEditScreen = ({ history }) => {
+  //profile states
   const [name, setName] = useState('name');
   const [email, setEmail] = useState('email');
   const [phone, setPhone] = useState('phone number');
   const [major, setMajor] = useState('major');
   const [gradYear, setGradYear] = useState('Graduation Year');
-  //user stuff
+  const [groups, setClubs] = useState([
+    {
+      clubName: 'Enter club',
+    },
+  ]);
+
+  //function to make new clubs
+  const addClub = (e) => {
+    e.preventDefault();
+
+    const value = {
+      clubName: 'Enter club',
+    };
+    setClubs([...groups, value]);
+  };
+
+  //function to take off last club on list
+  const removeClub = (e) => {
+    e.preventDefault();
+    const values = [...groups];
+    values.pop();
+    setClubs(values);
+  };
+
+  //handle change of club values
+  const handleClubChange = (e, index) => {
+    e.preventDefault();
+    const values = [...groups];
+    values[index].clubName = e.target.value;
+    setClubs([...values]);
+  };
 
   //message for success or error
   const [message, setMessage] = useState('');
+  const [show, setShow] = useState(false);
 
+  const clearMessage = () => {
+    setTimeout(() => {
+      setShow(false);
+    }, 3000);
+  };
   //user state
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
@@ -32,16 +69,9 @@ const ProfileEditScreen = ({ history }) => {
   const { success, loading } = userUpdatedInfo;
 
   const dispatch = useDispatch();
-  const delayFunc = () => {
-    setTimeout(() => {
-      setMessage('');
-    }, 2000);
-  };
 
   useEffect(() => {
-    console.log(userInfo);
     if (!userInfo) {
-      console.log(userInfo);
       history.push('/login');
     } else {
       if (!profileInfo || !profileInfo.name) {
@@ -51,21 +81,26 @@ const ProfileEditScreen = ({ history }) => {
         dispatch({
           type: USER_UPDATE_PROFILE_RESET,
         });
-        delayFunc();
+        setShow(true);
+        clearMessage();
       } else {
+        console.log('here');
         setName(profileInfo.name);
         setEmail(profileInfo.email);
         setPhone(profileInfo.phone);
         setMajor(profileInfo.major);
         setGradYear(profileInfo.gradYear);
+        const copy = [...profileInfo.clubs];
+        setClubs(copy);
       }
     }
   }, [userInfo, profileInfo, history, dispatch, success]);
 
   const submitHandler = (e) => {
     e.preventDefault();
-
-    dispatch(updateUserProfile({ name, email, phone, major, gradYear }));
+    dispatch(
+      updateUserProfile({ name, email, phone, major, gradYear }, groups)
+    );
     setMessage('success');
   };
   return (
@@ -135,7 +170,29 @@ const ProfileEditScreen = ({ history }) => {
                     }}
                   />
                 </div>
-
+                <button onClick={addClub}>Add Club</button>
+                {groups &&
+                  groups.map((club, index) => {
+                    return (
+                      <div
+                        className='profile__Form__input-container'
+                        key={index}
+                      >
+                        <label htmlFor='gradYear'>Club Name</label>
+                        <input
+                          type='text'
+                          name='club'
+                          value={club.clubName}
+                          onChange={(event) => handleClubChange(event, index)}
+                        />
+                      </div>
+                    );
+                  })}
+                {groups.length === 0 ? (
+                  <></>
+                ) : (
+                  <button onClick={removeClub}>Remove Last Club</button>
+                )}
                 <div className='profile__Form__submit'>
                   <input type='submit' className='button' value={'submit'} />
                 </div>
@@ -164,7 +221,9 @@ const ProfileEditScreen = ({ history }) => {
           </div>
         </div>
 
-        {message !== '' && <Message>{message}</Message>}
+        {message !== '' && show && (
+          <Message variant={'success'}>{message}</Message>
+        )}
       </div>
     </motion.div>
   );

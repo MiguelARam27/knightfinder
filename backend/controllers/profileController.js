@@ -74,7 +74,7 @@ const userProfileClubsUpdate = asyncHandler(async (req, res) => {
       };
       updatedClubFields.push(clubInfo);
     });
-    console.log(updatedClubFields);
+
     let profile = await Profile.findOneAndUpdate(
       { user: req.user._id },
       { clubs: updatedClubFields },

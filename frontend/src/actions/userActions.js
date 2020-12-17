@@ -142,7 +142,10 @@ export const logout = () => (dispatch) => {
   window.location.href = '/';
 };
 
-export const updateUserProfile = (user) => async (dispatch, getState) => {
+export const updateUserProfile = (user, clubs) => async (
+  dispatch,
+  getState
+) => {
   try {
     dispatch({
       type: USER_UPDATE_PROFILE_REQUEST,
@@ -160,6 +163,9 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.post('/api/profile', user, config);
+    if (clubs) {
+      await axios.put('/api/profile/clubs', clubs, config);
+    }
 
     dispatch({
       type: USER_UPDATE_PROFILE_SUCCESS,

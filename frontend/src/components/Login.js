@@ -10,6 +10,14 @@ const Login = ({ history, location }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const [show, setShow] = useState(false);
+
+  const clearMessage = () => {
+    setTimeout(() => {
+      setShow(false);
+    }, 2000);
+  };
+
   const dispatch = useDispatch();
 
   const userLogin = useSelector((state) => state.userLogin);
@@ -24,7 +32,11 @@ const Login = ({ history, location }) => {
     if (userInfo) {
       history.push('/home');
     }
-  }, [userInfo, history]);
+    if (error) {
+      setShow(true);
+      clearMessage();
+    }
+  }, [userInfo, history, error]);
   return (
     <motion.div
       variants={pageAnimation}
@@ -67,7 +79,7 @@ const Login = ({ history, location }) => {
                   <button type='button' onClick={submitHandler}>
                     Login
                   </button>
-                  {error && <Message variant='danger'>{error}</Message>}
+                  {show && error && <Message variant='danger'>{error}</Message>}
                 </form>
               </>
             )}

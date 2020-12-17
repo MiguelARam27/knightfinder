@@ -70,6 +70,7 @@ const SignUp = ({ history }) => {
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
+                required
               />
               <input
                 type='password'
@@ -79,6 +80,7 @@ const SignUp = ({ history }) => {
                 onChange={(e) => {
                   setPassword(e.target.value);
                 }}
+                required
               />
               <input
                 type='password'
@@ -88,6 +90,7 @@ const SignUp = ({ history }) => {
                 onChange={(e) => {
                   setConfirmPassword(e.target.value);
                 }}
+                required
               />
 
               <input
@@ -97,9 +100,9 @@ const SignUp = ({ history }) => {
               />
             </>
           )}
-          {/* 
+
           {message && <Message>{message}</Message>}
-          {error && <Message variant='danger'>{error}</Message>} */}
+          {error && <Message variant='danger'>{error}</Message>}
         </form>
       </div>
     </motion.div>
