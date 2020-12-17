@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { motion } from 'framer-motion';
 import { getFriends } from '../actions/profileActions';
 import Card from '../components/Card';
+import Loading from '../components/Loading';
 const HomeScreen = ({ history }) => {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
@@ -11,7 +12,7 @@ const HomeScreen = ({ history }) => {
   const { profileInfo } = userDetails;
 
   const userFriends = useSelector((state) => state.userFriends);
-  const { friends } = userFriends;
+  const { friends, loading } = userFriends;
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -30,7 +31,10 @@ const HomeScreen = ({ history }) => {
         <div className='home__container'>
           <h1 className='home__container__title'>My Friends</h1>
           <div className='home__container__card-container'>
-            {friends &&
+            {loading ? (
+              <Loading></Loading>
+            ) : (
+              friends &&
               friends.map((profile, index) => {
                 return (
                   <Card
@@ -44,7 +48,8 @@ const HomeScreen = ({ history }) => {
                     _id={profile._id}
                   />
                 );
-              })}
+              })
+            )}
           </div>
 
           {/* <div className='home__container__card contact-card'>

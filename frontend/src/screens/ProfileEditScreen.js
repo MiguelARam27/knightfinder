@@ -39,7 +39,9 @@ const ProfileEditScreen = ({ history }) => {
   };
 
   useEffect(() => {
+    console.log(userInfo);
     if (!userInfo) {
+      console.log(userInfo);
       history.push('/login');
     } else {
       if (!profileInfo || !profileInfo.name) {
@@ -58,7 +60,6 @@ const ProfileEditScreen = ({ history }) => {
         setGradYear(profileInfo.gradYear);
       }
     }
-    // } else if {
   }, [userInfo, profileInfo, history, dispatch, success]);
 
   const submitHandler = (e) => {

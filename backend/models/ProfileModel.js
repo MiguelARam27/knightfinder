@@ -35,7 +35,6 @@ const ProfileSchema = new mongoose.Schema({
       },
       timeAttended: {
         type: Number,
-        required: true,
       },
     },
   ],

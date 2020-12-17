@@ -5,7 +5,8 @@
   min-height: 100vh;
   position: relative;
   @include respond(phone) {
-    padding: 2rem 0.5rem;
+    padding: 2rem 0;
+    min-height: 100vh;
   }
   &__container {
     position: relative;
@@ -31,6 +32,9 @@
     align-items: stretch;
     margin: 0 auto;
     height: 100%;
+    @include respond(phone) {
+      flex-flow: column;
+    }
   }
 
   &__Form {
@@ -50,13 +54,14 @@
       margin: 1.2rem 0;
       @include respond(phone) {
         width: 100%;
+        justify-content: space-around;
       }
       label {
         font-size: 1.8rem;
         font-size: 'Lato', sans-serif;
         text-align: center;
         @include respond(phone) {
-          font-size: 1.5rem;
+          font-size: 1.8rem;
         }
         width: 20%;
         padding: 1.5rem 2rem;
@@ -72,6 +77,10 @@
         transition: all 0.3s;
         color: white !important;
         font-family: 'Montserrat', sans-serif;
+        @include respond(phone) {
+          padding: 1rem 1rem;
+          width: 60%;
+        }
       }
     }
     &__submit {

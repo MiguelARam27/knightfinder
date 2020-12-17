@@ -5,6 +5,8 @@ import Message from './Message';
 import { useDispatch, useSelector } from 'react-redux';
 import { register } from '../actions/userActions';
 import { useEffect } from 'react';
+import Loading from '../components/Loading';
+import { USER_LOGIN_SUCCESS } from '../constants/userConstants';
 const SignUp = ({ history }) => {
   const [email, setEmail] = useState('email');
   const [password, setPassword] = useState('password');
@@ -16,7 +18,7 @@ const SignUp = ({ history }) => {
   const { userInfo } = userLogin;
 
   const userRegister = useSelector((state) => state.userRegister);
-  const { loading, error } = userRegister;
+  const { loading, error, success, userInfo: profileRegister } = userRegister;
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -35,10 +37,12 @@ const SignUp = ({ history }) => {
   };
 
   useEffect(() => {
-    if (userInfo) {
-      history.push('/home');
+    if (success) {
+      setTimeout(() => {
+        history.push('/profile');
+      }, 1000);
     }
-  }, [userInfo, history]);
+  }, [success, history]);
   return (
     <motion.div
       variants={pageAnimation}
@@ -51,45 +55,51 @@ const SignUp = ({ history }) => {
         style={{ backgroundImage: "url('./img/knight.jpg')" }}
       >
         <form className='form' onSubmit={submitHandler}>
-          <div className='heading'>
-            <h1 className='heading-primary--main'>Register</h1>
-          </div>
+          {loading ? (
+            <Loading />
+          ) : (
+            <>
+              <div className='heading'>
+                <h1 className='heading-primary--main'>Register</h1>
+              </div>
 
-          <input
-            type='email'
-            className='form__input'
-            placeholder='email'
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-          <input
-            type='password'
-            name='passowrd'
-            className='form__input'
-            placeholder='password'
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-          <input
-            type='password'
-            name='password2'
-            className='form__input'
-            placeholder='confirm password'
-            onChange={(e) => {
-              setConfirmPassword(e.target.value);
-            }}
-          />
+              <input
+                type='email'
+                className='form__input'
+                placeholder='email'
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+              />
+              <input
+                type='password'
+                name='passowrd'
+                className='form__input'
+                placeholder='password'
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              />
+              <input
+                type='password'
+                name='password2'
+                className='form__input'
+                placeholder='confirm password'
+                onChange={(e) => {
+                  setConfirmPassword(e.target.value);
+                }}
+              />
 
-          <input
-            type='submit'
-            className='form__submit'
-            placeholder='confirm password'
-          />
-
+              <input
+                type='submit'
+                className='form__submit'
+                placeholder='confirm password'
+              />
+            </>
+          )}
+          {/* 
           {message && <Message>{message}</Message>}
-          {error && <Message variant='danger'>{error}</Message>}
+          {error && <Message variant='danger'>{error}</Message>} */}
         </form>
       </div>
     </motion.div>

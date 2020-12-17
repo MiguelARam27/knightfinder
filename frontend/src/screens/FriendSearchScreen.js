@@ -5,13 +5,14 @@ import Search from '../components/Search';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProfiles } from '../actions/profileActions';
 import { Route } from 'react-router-dom';
+import Loading from '../components/Loading';
 
 const FriendSearchScreen = ({ match }) => {
   const keyword = match.params.keyword;
   console.log(keyword);
   //profileList returned
   const profilesList = useSelector((state) => state.profilesList);
-  const { profiles } = profilesList;
+  const { profiles, loading } = profilesList;
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -22,7 +23,10 @@ const FriendSearchScreen = ({ match }) => {
       <div className='search__container'>
         <Route render={({ history }) => <Search history={history} />} />
         <div className='home__container__card-container'>
-          {profiles &&
+          {loading === true ? (
+            <Loading></Loading>
+          ) : (
+            profiles &&
             profiles.map((profile, index) => {
               return (
                 <Card
@@ -36,7 +40,8 @@ const FriendSearchScreen = ({ match }) => {
                   _id={profile._id}
                 />
               );
-            })}
+            })
+          )}
         </div>
         {/* <Card
           name={'yo'}

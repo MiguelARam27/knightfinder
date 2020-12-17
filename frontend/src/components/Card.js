@@ -29,7 +29,7 @@ const Card = ({ name, gradYear, major, phone, clubs, email, _id }) => {
       case '/search':
         return (
           <button className='add_friend' _id={_id} onClick={addFriendHandler}>
-            Add
+            Add Knight
           </button>
         );
       case '/home':
@@ -39,7 +39,7 @@ const Card = ({ name, gradYear, major, phone, clubs, email, _id }) => {
             _id={_id}
             onClick={removeFriendHandler}
           >
-            Remove
+            Remove Knight
           </button>
         );
       default:
@@ -89,15 +89,7 @@ const Card = ({ name, gradYear, major, phone, clubs, email, _id }) => {
             })}
         </div>
       </div>
-      {/* {pathname && pathname === '/home' ? (
-        <button className='add_friend' _id={_id} onClick={removeFriendHandler}>
-          Remove
-        </button>
-      ) : (
-        <button className='add_friend' _id={_id} onClick={addFriendHandler}>
-          Add
-        </button>
-      )} */}
+
       {pathname && cardButton(pathname)}
     </div>
   );
