@@ -17,7 +17,7 @@ const FriendSearchScreen = ({ match }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProfiles(keyword));
-  }, [dispatch]);
+  }, [dispatch, keyword]);
   return (
     <motion.div initial='hidden' animate='show' exit='exit' className='search'>
       <div className='search__container'>

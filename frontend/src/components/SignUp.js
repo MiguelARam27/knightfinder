@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { register } from '../actions/userActions';
 import { useEffect } from 'react';
 import Loading from '../components/Loading';
-import { USER_LOGIN_SUCCESS } from '../constants/userConstants';
+
 const SignUp = ({ history }) => {
   const [email, setEmail] = useState('email');
   const [password, setPassword] = useState('password');
@@ -14,11 +14,9 @@ const SignUp = ({ history }) => {
   const [message, setMessage] = useState(null);
 
   const dispatch = useDispatch();
-  const userLogin = useSelector((state) => state.userLogin);
-  const { userInfo } = userLogin;
 
   const userRegister = useSelector((state) => state.userRegister);
-  const { loading, error, success, userInfo: profileRegister } = userRegister;
+  const { loading, error, success } = userRegister;
 
   const submitHandler = (e) => {
     e.preventDefault();

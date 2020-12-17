@@ -23,7 +23,7 @@ const HomeScreen = ({ history }) => {
     } else {
       dispatch(getFriends());
     }
-  }, [userInfo, profileInfo, history, userDetails]);
+  }, [userInfo, profileInfo, history, userDetails, dispatch]);
 
   return (
     <>

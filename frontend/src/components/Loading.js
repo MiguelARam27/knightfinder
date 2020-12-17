@@ -3,12 +3,7 @@ import spinner from '../img/spinner.gif';
 const loading = () => {
   return (
     <>
-      <img
-        className='loading'
-        src={spinner}
-
-        // alt='Loading...'
-      />
+      <img className='loading' src={spinner} alt='Loading...' />
     </>
   );
 };

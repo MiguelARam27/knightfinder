@@ -36,7 +36,12 @@ const initialState = {
   userLogin: { userInfo: userInfoFromStorage },
   userDetails: { profileInfo: userDetailsFromStorage },
 };
-const middleware = [thunk];
+// const middleware = [thunk];
+console.log(process.env.NODE_ENV);
+const middleware =
+  process.env.NODE_ENV !== 'production'
+    ? [require('redux-immutable-state-invariant').default(), thunk]
+    : [thunk];
 const store = createStore(
   reducer,
   initialState,

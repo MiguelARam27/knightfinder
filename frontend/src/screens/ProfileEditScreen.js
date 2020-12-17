@@ -90,7 +90,7 @@ const ProfileEditScreen = ({ history }) => {
         setPhone(profileInfo.phone);
         setMajor(profileInfo.major);
         setGradYear(profileInfo.gradYear);
-        const copy = [...profileInfo.clubs];
+        const copy = JSON.parse(JSON.stringify(profileInfo.clubs));
         setClubs(copy);
       }
     }
