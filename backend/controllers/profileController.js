@@ -1,6 +1,6 @@
 import asyncHandler from 'express-async-handler';
 
-import User from '../models/userModel.js';
+import User from '../models/UserModel.js';
 import Profile from '../models/ProfileModel.js';
 
 //@desc POST user profile info
