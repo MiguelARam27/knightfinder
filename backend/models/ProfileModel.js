@@ -25,6 +25,9 @@ const ProfileSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  avatar: {
+    type: String,
+  },
   clubs: [
     {
       type: Object,

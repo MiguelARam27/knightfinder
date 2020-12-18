@@ -10,14 +10,15 @@ const userProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
 
   if (user) {
-    const { gradYear, major, name, email, phone } = req.body;
-
+    const { gradYear, major, name, email, phone, avatar } = req.body;
+    console.log(req.body);
     const profileFields = {
       name,
       email,
       gradYear,
       major,
       phone,
+      avatar,
     };
 
     let profile = await Profile.findOneAndUpdate(

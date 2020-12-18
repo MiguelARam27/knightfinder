@@ -7,6 +7,7 @@ import { USER_UPDATE_PROFILE_RESET } from '../constants/userConstants';
 import Message from '../components/Message';
 import Card from '../components/Card';
 import Loading from '../components/Loading';
+import axios from 'axios';
 
 const ProfileEditScreen = ({ history }) => {
   //profile states
@@ -15,6 +16,7 @@ const ProfileEditScreen = ({ history }) => {
   const [phone, setPhone] = useState('phone number');
   const [major, setMajor] = useState('major');
   const [gradYear, setGradYear] = useState('Graduation Year');
+  const [avatar, setAvatar] = useState('blank');
   const [groups, setClubs] = useState([
     {
       clubName: 'Enter club',
@@ -56,6 +58,27 @@ const ProfileEditScreen = ({ history }) => {
       setShow(false);
     }, 3000);
   };
+
+  const uploadHandler = async (e) => {
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append('image', file);
+
+    try {
+      const config = {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      };
+
+      const { data } = await axios.post('/api/upload', formData, config);
+
+      setAvatar(data);
+      console.log(avatar);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   //user state
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
@@ -69,6 +92,14 @@ const ProfileEditScreen = ({ history }) => {
   const { success, loading } = userUpdatedInfo;
 
   const dispatch = useDispatch();
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    dispatch(
+      updateUserProfile({ name, email, phone, major, gradYear, avatar }, groups)
+    );
+    setMessage('success');
+  };
 
   useEffect(() => {
     if (!userInfo) {
@@ -94,14 +125,6 @@ const ProfileEditScreen = ({ history }) => {
       }
     }
   }, [userInfo, profileInfo, history, dispatch, success]);
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-    dispatch(
-      updateUserProfile({ name, email, phone, major, gradYear }, groups)
-    );
-    setMessage('success');
-  };
   return (
     <motion.div initial='hidden' animate='show' exit='exit' className='profile'>
       <div className='profile__container'>
@@ -169,6 +192,10 @@ const ProfileEditScreen = ({ history }) => {
                     }}
                   />
                 </div>
+                <div className='profile__Form__input-container'>
+                  <label htmlFor='avatar'>Avatar</label>
+                  <input type='file' name='avatar' onChange={uploadHandler} />
+                </div>
                 <button onClick={addClub} className='addButton'>
                   Add Club
                 </button>
@@ -217,6 +244,11 @@ const ProfileEditScreen = ({ history }) => {
                 phone={profileInfo.phone}
                 clubs={profileInfo.clubs}
                 _id={profileInfo._id}
+                avatar={
+                  profileInfo.avatar
+                    ? profileInfo.avatar
+                    : 'https://writestylesonline.com/wp-content/uploads/2016/08/Follow-These-Steps-for-a-Flawless-Professional-Profile-Picture.jpg'
+                }
               />
             ) : (
               <Card />

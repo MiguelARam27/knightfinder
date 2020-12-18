@@ -7,10 +7,10 @@ import {
   getProfiles,
 } from '../actions/profileActions';
 import { useLocation } from 'react-router-dom';
-const Card = ({ name, gradYear, major, phone, clubs, email, _id }) => {
+const Card = ({ name, gradYear, major, phone, clubs, email, _id, avatar }) => {
   const { pathname } = useLocation();
   const dispatch = useDispatch();
-
+  console.log(avatar);
   const addFriendHandler = (e) => {
     dispatch(addFriend(e.target.getAttribute('_id')));
     setTimeout(() => {
@@ -50,7 +50,11 @@ const Card = ({ name, gradYear, major, phone, clubs, email, _id }) => {
   return (
     <div className='search__container__card contact-card'>
       <div className='contact-card__header-image'>
-        <div className='contact-card__avatar'></div>
+        <img
+          className='contact-card__avatar'
+          alt='avatar image'
+          src={avatar}
+        ></img>
       </div>
       <h1 className='contact-card__name'>{name ? name : 'name'}</h1>
       <ul>
