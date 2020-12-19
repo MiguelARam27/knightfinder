@@ -74,6 +74,7 @@ const ProfileEditScreen = ({ history }) => {
       const { data } = await axios.post('/api/upload', formData, config);
 
       setAvatar(data);
+      console.log(data);
     } catch (error) {
       console.error(error);
     }
@@ -121,6 +122,7 @@ const ProfileEditScreen = ({ history }) => {
         setGradYear(profileInfo.gradYear);
         const copy = JSON.parse(JSON.stringify(profileInfo.clubs));
         setClubs(copy);
+        setAvatar(profileInfo.avatar);
       }
     }
   }, [userInfo, profileInfo, history, dispatch, success]);
@@ -243,11 +245,7 @@ const ProfileEditScreen = ({ history }) => {
                 phone={profileInfo.phone}
                 clubs={profileInfo.clubs}
                 _id={profileInfo._id}
-                avatar={
-                  profileInfo.avatar
-                    ? profileInfo.avatar
-                    : 'https://writestylesonline.com/wp-content/uploads/2016/08/Follow-These-Steps-for-a-Flawless-Professional-Profile-Picture.jpg'
-                }
+                avatar={profileInfo.avatar}
               />
             ) : (
               <Card />

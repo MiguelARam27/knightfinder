@@ -166,7 +166,6 @@ export const updateUserProfile = (user, clubs) => async (
     if (clubs) {
       await axios.put('/api/profile/clubs', clubs, config);
     }
-
     dispatch({
       type: USER_UPDATE_PROFILE_SUCCESS,
       payload: data,
