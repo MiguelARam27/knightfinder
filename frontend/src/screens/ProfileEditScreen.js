@@ -74,7 +74,6 @@ const ProfileEditScreen = ({ history }) => {
       const { data } = await axios.post('/api/upload', formData, config);
 
       setAvatar(data);
-      console.log(avatar);
     } catch (error) {
       console.error(error);
     }

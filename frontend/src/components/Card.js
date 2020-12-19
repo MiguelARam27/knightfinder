@@ -10,7 +10,7 @@ import { useLocation } from 'react-router-dom';
 const Card = ({ name, gradYear, major, phone, clubs, email, _id, avatar }) => {
   const { pathname } = useLocation();
   const dispatch = useDispatch();
-  console.log(avatar);
+
   const addFriendHandler = (e) => {
     dispatch(addFriend(e.target.getAttribute('_id')));
     setTimeout(() => {
@@ -52,8 +52,12 @@ const Card = ({ name, gradYear, major, phone, clubs, email, _id, avatar }) => {
       <div className='contact-card__header-image'>
         <img
           className='contact-card__avatar'
-          alt='avatar image'
-          src={avatar}
+          alt='avatar'
+          src={
+            avatar
+              ? avatar
+              : 'https://writestylesonline.com/wp-content/uploads/2016/08/Follow-These-Steps-for-a-Flawless-Professional-Profile-Picture.jpg'
+          }
         ></img>
       </div>
       <h1 className='contact-card__name'>{name ? name : 'name'}</h1>
