@@ -38,6 +38,7 @@ const FriendSearchScreen = ({ match }) => {
                   phone={profile.phone}
                   clubs={profile.clubs}
                   _id={profile._id}
+                  avatar={profile.avatar}
                 />
               );
             })

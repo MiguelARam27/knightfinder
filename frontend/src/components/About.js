@@ -8,6 +8,7 @@ import {
 } from './animation/Animation';
 import { useScroll } from './animation/useScroll';
 import Wave from './Wave';
+import { Link } from 'react-router-dom';
 
 const About = () => {
   const [element, controls] = useScroll();
@@ -36,7 +37,10 @@ const About = () => {
           <motion.p variants={fade}>
             A complementary service for all UCF students{' '}
           </motion.p>
-          <motion.button variants={fade}>Sign up</motion.button>
+          <Link to='/signup'>
+            {' '}
+            <motion.button variants={fade}>Sign up</motion.button>
+          </Link>
         </div>
         <div className='image' style={{ zIndex: '2' }}>
           <motion.img
