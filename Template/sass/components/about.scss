@@ -8,6 +8,7 @@
   background-color: $color-black;
   font-family: 'Montserrat', sans-serif;
   z-index: 2;
+  position: relative;
 
   @include respond(phone) {
     display: block;

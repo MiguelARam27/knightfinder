@@ -26,7 +26,7 @@ const Wave = () => {
       viewBox='0 0 1000 363'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
-      style={{ position: 'absolute', zIndex: '1', left: '0', bottom: '0' }}
+      style={{ position: 'absolute', zIndex: '0', left: '0', bottom: '0' }}
     >
       <motion.path
         variants={fade}
