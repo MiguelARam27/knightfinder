@@ -96,7 +96,7 @@ const forgotPassword = asyncHandler(async (req, res) => {
       'host'
     )}/api/users/reset/${resetToken}`;
 
-    const message = `you are recieveing this message to \n\n ${resetUrl}`;
+    const message = `you are recieving this message to reset your password, copy and paste the following code into the reset password page \n\n reset your password ${resetToken}`;
 
     try {
       await sendEmail({
