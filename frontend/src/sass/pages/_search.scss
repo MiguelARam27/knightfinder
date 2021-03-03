@@ -1,0 +1,53 @@
+.search {
+  padding: 4rem 4rem;
+  background-color: rgba(255, 201, 4, 0.5);
+  height: auto;
+  min-height: 100rem;
+  position: relative;
+  @include respond(phone) {
+    padding: 2rem 0.5rem;
+  }
+
+  &__container {
+    position: relative;
+    min-height: 110vh;
+    border-radius: 1rem;
+    background-color: white;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+
+    &__card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+      justify-items: center;
+      align-items: space-around;
+      gap: 2.4rem;
+      padding: 2rem 2rem;
+    }
+  }
+}
+
+.searchBar-container {
+  width: 100%;
+  position: absolute;
+  top: -3rem;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+  @include respond(phone) {
+    margin-top: 2rem;
+  }
+  .searchInput {
+    padding: 1.2rem 2rem;
+    text-align: center;
+    width: 80%;
+    font-size: 2rem;
+    border-radius: 1px solid black;
+  }
+  i {
+    position: absolute;
+    top: 0.5rem;
+    font-size: 4rem;
+    left: 11%;
+  }
+}

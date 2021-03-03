@@ -223,6 +223,7 @@ ul {
   background-color: black;
   color: white;
   font-size: 2rem;
+  padding: 0.5rem 0.5rem;
 }
 .contact-card .add_friend:hover {
   cursor: pointer;

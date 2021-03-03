@@ -1,0 +1,149 @@
+.profile {
+  padding: 4rem 4rem;
+  background-color: rgba(255, 201, 4, 0.5);
+  height: auto;
+  min-height: 100vh;
+  position: relative;
+  @include respond(phone) {
+    padding: 2rem 0;
+    min-height: 100vh;
+  }
+  &__container {
+    position: relative;
+    height: auto;
+    min-height: 100%;
+    margin-top: 5rem;
+    background-color: $color-white;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    border-radius: 1rem;
+    > h1:first-child {
+      color: black;
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 5rem !important;
+      letter-spacing: 0.4rem;
+    }
+  }
+
+  &__container_grid {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    margin: 0 auto;
+    height: 100%;
+    @include respond(phone) {
+      flex-flow: column;
+    }
+  }
+
+  &__Form {
+    width: 100%;
+    height: auto;
+    // margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-flow: column;
+
+    &__input-container {
+      width: 80%;
+      display: flex;
+      justify-content: space-between;
+      margin: 1.2rem 0;
+      @include respond(phone) {
+        width: 100%;
+        justify-content: space-around;
+      }
+      label {
+        font-size: 1.8rem;
+        font-size: 'Lato', sans-serif;
+        text-align: center;
+        @include respond(phone) {
+          font-size: 1.8rem;
+        }
+        width: 20%;
+        padding: 1.5rem 2rem;
+      }
+      input {
+        font-size: 1.5rem;
+        padding: 1.5rem 2rem;
+        border-radius: 2px;
+        background-color: black;
+        border: none;
+        border-bottom: 3px solid transparent;
+        width: 80%;
+        transition: all 0.3s;
+        color: white !important;
+        font-family: 'Montserrat', sans-serif;
+        @include respond(phone) {
+          padding: 1rem 1rem;
+          width: 60%;
+        }
+      }
+    }
+    &__submit {
+      margin: 1.4rem 0;
+      width: 50%;
+      text-align: center;
+      .button {
+        width: 50%;
+        font-weight: bold;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 1.2rem 2rem;
+        border: 3px solid $color-secondary-dark;
+        color: white;
+        transition: all 0.5s ease;
+        background: transparent;
+        background-color: black;
+        &:hover {
+          color: $color-secondary-dark;
+          background-color: white;
+        }
+      }
+    }
+  }
+
+  &__card-display {
+    width: 100%;
+    & > div:first-of-type {
+      margin: 0 auto;
+    }
+    & > h2:first-child {
+      font-size: 4rem;
+      color: black;
+      text-transform: uppercase;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      margin-bottom: 2rem;
+      font-weight: 800;
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
+    }
+  }
+}
+
+.addButton {
+  width: 40%;
+  padding: 0.4rem 1rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  border-radius: 2rem;
+  margin: 0.3rem 0;
+}
+.removeButton {
+  width: 40%;
+  padding: 0.4rem 1rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  border-radius: 2rem;
+  margin: 0.3rem 0;
+}

@@ -8,6 +8,7 @@ import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 import userRoutes from './routes/userRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 import profileRoutes from './routes/profileRoutes.js';
+import cookieParser from 'cookie-parser';
 dotenv.config();
 
 connectDB();
@@ -16,8 +17,11 @@ const app = express();
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
-
+//Body parser
 app.use(express.json());
+
+//Cookie parser
+app.use(cookieParser());
 
 app.use('/api/users', userRoutes);
 app.use('/api/profile', profileRoutes);

@@ -37,7 +37,7 @@ const initialState = {
   userDetails: { profileInfo: userDetailsFromStorage },
 };
 // const middleware = [thunk];
-console.log(process.env.NODE_ENV);
+
 const middleware =
   process.env.NODE_ENV !== 'production'
     ? [require('redux-immutable-state-invariant').default(), thunk]

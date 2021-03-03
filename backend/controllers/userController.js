@@ -4,20 +4,24 @@ import User from '../models/UserModel.js';
 import Profile from '../models/ProfileModel.js';
 import crypto from 'crypto';
 import sendEmail from '../utils/sendEmail.js';
+import jwt from 'jsonwebtoken';
+
 // @desc    Auth user & get token
 // @route   POST /api/users/login
 // @access  Public
+
 const authUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
   const user = await User.findOne({ email });
 
   if (user && (await user.matchPassword(password))) {
-    res.json({
-      _id: user._id,
-      email: user.email,
-      token: generateToken(user._id),
-    });
+    // res.json({
+    //   _id: user._id,
+    //   email: user.email,
+    //   token: generateToken(user._id),
+    // });
+    sendTokenResponse(user, 200, res);
   } else {
     res.status(401);
     throw new Error('Invalid email or password');
@@ -148,6 +152,26 @@ const resetPassword = asyncHandler(async (req, res) => {
     throw new Error('invalid token');
   }
 });
+
+//Get token from model, create cookie and send response
+
+const sendTokenResponse = (user, statusCode, res) => {
+  //Create token
+  const token = generateToken(user._id);
+  const options = {
+    maxAge: 30 * 1000 * 60,
+    httpOnly: true,
+  };
+
+  if (process.env.NODE_ENV === 'production') {
+    options.secure = true;
+  }
+
+  res.status(statusCode).cookie('token', token, options).json({
+    success: true,
+    token,
+  });
+};
 
 export {
   authUser,

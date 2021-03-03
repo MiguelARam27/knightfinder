@@ -25,7 +25,6 @@ const Card = ({ name, gradYear, major, phone, clubs, email, _id, avatar }) => {
     }, 1000);
   };
   const cardButton = (page) => {
-    console.log(avatar);
     switch (page) {
       case '/search':
         return (

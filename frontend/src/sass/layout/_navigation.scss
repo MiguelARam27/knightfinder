@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+.nav {
+  background-color: $color-black;
+  height: 10vh;
+  box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 9999;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  @include respond(phone) {
+    justify-content: center;
+    align-items: center;
+  }
+
+  @include respond(phone) {
+    flex-flow: column;
+    align-items: center;
+  }
+
+  &__logo {
+    margin-right: auto;
+    width: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 2rem;
+
+    &__img {
+      height: 2.8rem;
+      width: 2.8rem;
+    }
+
+    &__title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      color: $color-light-text;
+      text-transform: uppercase;
+      font-size: 2.1rem;
+      margin-left: 2rem;
+      color: $color-primary;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__link-toggle {
+    display: none;
+  }
+
+  &__item-container {
+    transition: all 0.3s ease-out;
+    @include respond(phone) {
+      position: absolute;
+      top: 10vh;
+      right: -100vw;
+      height: auto;
+      display: flex;
+      flex-flow: column;
+      background-color: black;
+      width: 100%;
+      text-align: center;
+      z-index: -1;
+    }
+
+    &__link {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+
+      color: $color-light-text;
+      text-transform: uppercase;
+      font-size: 2.1rem;
+      transition: all 0.1s ease-out;
+      padding: 1.2rem;
+      height: 100%;
+
+      &:hover {
+        transform: scale(1.01);
+        border-bottom: 0.2rem solid $color-secondary-dark;
+        text-shadow: 0.5rem 4rem 2rem rgba(253, 253, 253, 0.2);
+        cursor: pointer;
+      }
+
+      &__active {
+        transform: scale(1.01);
+        border-bottom: 0.2rem solid $color-secondary-dark;
+        text-shadow: 0.5rem 4rem 2rem rgba(253, 253, 253, 0.2);
+      }
+
+      // @include respond(phone) {
+      //   display: none;
+      // }
+    }
+  }
+
+  //white menu bar
+  &__toggle-label {
+    position: absolute;
+    top: 0;
+    right: -100%;
+    margin-right: 6rem;
+    height: 100%;
+    color: white;
+    transition: all 0.3s ease;
+
+    @include respond(phone) {
+      display: block;
+      top: 0;
+      right: 0;
+      transform: translate(0, 50%);
+    }
+
+    :hover {
+      cursor: pointer;
+    }
+
+    span,
+    span::before,
+    span::after {
+      display: block;
+      background: white;
+      height: 0.5rem;
+      width: 3.1rem;
+      border-radius: 2px;
+      position: relative;
+      margin-top: 2px;
+      margin-bottom: 2px;
+    }
+    span::before,
+    span::after {
+      content: '';
+      position: absolute;
+    }
+    span::before {
+      bottom: 7px;
+    }
+    span::after {
+      top: 7px;
+    }
+  }
+}
+
+#nav-toggle:checked ~ .nav__item-container {
+  position: absolute;
+  top: 10vh;
+  right: 0;
+  height: auto;
+  display: flex;
+  flex-flow: column;
+  background-color: black;
+  // width: 100%;
+  text-align: center;
+}

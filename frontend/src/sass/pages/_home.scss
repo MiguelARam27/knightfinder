@@ -1,0 +1,46 @@
+.home {
+  padding: 4rem 4rem;
+  background-color: rgba(255, 201, 4, 0.5);
+  height: auto;
+  min-height: 100rem;
+  position: relative;
+
+  @include respond(phone) {
+    padding: 2rem 0.5rem;
+  }
+
+  &__container {
+    position: relative;
+
+    min-height: 110vh;
+
+    border-radius: 1rem;
+
+    background-color: white;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+
+    &__title {
+      color: $color-black;
+      text-transform: uppercase;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+
+      font-weight: 800;
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 5rem !important;
+      letter-spacing: 0.4rem;
+    }
+    &__card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+      justify-items: center;
+      align-items: space-around;
+      // background-color: green;
+      gap: 2.4rem;
+      padding: 2rem 2rem;
+    }
+  }
+}

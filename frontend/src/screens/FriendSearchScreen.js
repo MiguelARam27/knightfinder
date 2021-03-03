@@ -9,7 +9,7 @@ import Loading from '../components/Loading';
 
 const FriendSearchScreen = ({ match }) => {
   const keyword = match.params.keyword;
-  console.log(keyword);
+
   //profileList returned
   const profilesList = useSelector((state) => state.profilesList);
   const { profiles, loading } = profilesList;
@@ -44,14 +44,6 @@ const FriendSearchScreen = ({ match }) => {
             })
           )}
         </div>
-        {/* <Card
-          name={'yo'}
-          email={'garandster28@live.com'}
-          gradYear={2012}
-          major={'science'}
-          phone={'407 - 288 - 6546'}
-          clubs={['hello']}
-        /> */}
       </div>
     </motion.div>
   );
