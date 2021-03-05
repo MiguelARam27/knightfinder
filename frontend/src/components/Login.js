@@ -59,7 +59,7 @@ const Login = ({ history, location }) => {
                 <div className='heading'>
                   <h1 className='heading-primary--main'>login</h1>
                 </div>
-                <form className='form__container'>
+                <div className='form__container'>
                   <input
                     type='email'
                     className='form__input'
@@ -79,8 +79,11 @@ const Login = ({ history, location }) => {
                   <button type='button' onClick={submitHandler}>
                     Login
                   </button>
+                  <a className='forgot-button' href='/forgotpassword'>
+                    Forgot Password?
+                  </a>
                   {show && error && <Message variant='danger'>{error}</Message>}
-                </form>
+                </div>
               </>
             )}
           </form>

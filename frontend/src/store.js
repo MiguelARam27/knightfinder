@@ -6,6 +6,7 @@ import {
   userDetailsReducer,
   userUpdateReducer,
   userRegisterReducer,
+  userForgotPasswordReducer,
 } from './reducers/userReducers';
 import {
   profilesListReducer,
@@ -23,6 +24,7 @@ const reducer = combineReducers({
   addFriend: profileAddFriendReducer,
   removeFriend: profileRemoveFriendReducer,
   userFriends: profileGetFriendsReducer,
+  forgotPassword: userForgotPasswordReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem('userInfo')

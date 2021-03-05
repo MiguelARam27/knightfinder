@@ -9,6 +9,7 @@ import HomeScreen from './screens/HomeScreen';
 import { AnimatePresence } from 'framer-motion';
 import ProfileEditScreen from './screens/ProfileEditScreen';
 import FriendSearchScreen from './screens/FriendSearchScreen';
+import ForgotPasswordScreen from './screens/ForgotPasswordScreen';
 
 function App() {
   const location = useLocation();
@@ -24,6 +25,11 @@ function App() {
           <Route path='/profile' component={ProfileEditScreen} exact />
           <Route path='/search/:keyword' component={FriendSearchScreen} />
           <Route path='/search' component={FriendSearchScreen} exact />
+          <Route
+            path='/forgotpassword'
+            component={ForgotPasswordScreen}
+            exact
+          />
         </Switch>
       </AnimatePresence>
       <Footer />

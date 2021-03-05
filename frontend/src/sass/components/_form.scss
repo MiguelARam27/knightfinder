@@ -66,6 +66,26 @@
       height: 70%;
 
       button {
+        font-family: 'Lato', sans-serif;
+        font-weight: bold;
+        font-size: 1.1rem;
+        cursor: pointer;
+        padding: 1rem 2rem;
+        border: 3px solid $color-secondary-dark;
+        color: white;
+        transition: all 0.5s ease;
+        background: transparent;
+        &:hover {
+          color: $color-secondary-dark;
+          background-color: white;
+        }
+        @include respond(phone) {
+          font-size: 3.5rem;
+        }
+      }
+
+      .forgot-button {
+        font-family: 'Lato', sans-serif;
         font-weight: bold;
         font-size: 1.1rem;
         cursor: pointer;
@@ -83,6 +103,7 @@
         }
       }
     }
+
     &__input {
       font-size: 1.5rem;
       padding: 1.5rem 2rem;

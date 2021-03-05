@@ -421,6 +421,7 @@ ul {
   height: 70%;
 }
 .login .form__container button {
+  font-family: "Lato", sans-serif;
   font-weight: bold;
   font-size: 1.1rem;
   cursor: pointer;
@@ -436,6 +437,26 @@ ul {
 }
 @media only screen and (max-width: 37.5em) {
   .login .form__container button {
+    font-size: 3.5rem;
+  }
+}
+.login .form__container .forgot-button {
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  border: 3px solid #ffc904;
+  color: white;
+  transition: all 0.5s ease;
+  background: transparent;
+}
+.login .form__container .forgot-button:hover {
+  color: #ffc904;
+  background-color: white;
+}
+@media only screen and (max-width: 37.5em) {
+  .login .form__container .forgot-button {
     font-size: 3.5rem;
   }
 }
@@ -1212,6 +1233,77 @@ ul {
   top: 0.5rem;
   font-size: 4rem;
   left: 11%;
+}
+
+.forgot {
+  height: 80rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.forgot__form {
+  background-color: rgba(0, 0, 0, 0.85);
+  border-radius: 1.2rem;
+  height: 40%;
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: column;
+  padding: 2.5rem 0;
+}
+.forgot__title {
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.3rem;
+  text-transform: capitalize;
+  font-weight: 800;
+  font-family: "Montserrat", sans-serif;
+  font-size: 4.5rem;
+  letter-spacing: 0.3rem;
+}
+.forgot__input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.forgot__input {
+  font-size: 1.5rem;
+  padding: 1.5rem 2rem;
+  border-radius: 2px;
+  background-color: rbga(white, 0.5);
+  border: none;
+  border-bottom: 3px solid transparent;
+  width: 90%;
+  transition: all 0.3s;
+}
+@media only screen and (max-width: 37.5em) {
+  .forgot__input {
+    font-size: 3.5rem;
+  }
+}
+.forgot button {
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  border: 3px solid #ffc904;
+  color: white;
+  transition: all 0.5s ease;
+  background: transparent;
+}
+.forgot button:hover {
+  color: #ffc904;
+  background-color: white;
+}
+@media only screen and (max-width: 37.5em) {
+  .forgot button {
+    font-size: 3.5rem;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */
