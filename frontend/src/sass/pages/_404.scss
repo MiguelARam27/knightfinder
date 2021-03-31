@@ -1,0 +1,41 @@
+.not-found {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 201, 4, 0.5);
+  section {
+    display: flex;
+    justify-content: space-evenly;
+    flex-flow: column;
+    align-items: center;
+  }
+  h1 {
+    color: black;
+    text-transform: uppercase;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7rem;
+  }
+
+  a {
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    border: 3px solid $color-secondary-dark;
+    color: black;
+    transition: all 0.5s ease;
+    background: white;
+    &:hover {
+      color: $color-secondary-dark;
+      background-color: black;
+    }
+    @include respond(phone) {
+      font-size: 3.5rem;
+    }
+  }
+}

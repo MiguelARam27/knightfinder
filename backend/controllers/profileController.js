@@ -11,7 +11,6 @@ const userProfile = asyncHandler(async (req, res) => {
 
   if (user) {
     const { gradYear, major, name, email, phone, avatar } = req.body;
-    console.log(req.body);
     const profileFields = {
       name,
       email,

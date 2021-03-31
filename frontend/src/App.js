@@ -10,6 +10,7 @@ import { AnimatePresence } from 'framer-motion';
 import ProfileEditScreen from './screens/ProfileEditScreen';
 import FriendSearchScreen from './screens/FriendSearchScreen';
 import ForgotPasswordScreen from './screens/ForgotPasswordScreen';
+import NotFoundScreen from './screens/NotFoundScreen';
 
 function App() {
   const location = useLocation();
@@ -30,6 +31,7 @@ function App() {
             component={ForgotPasswordScreen}
             exact
           />
+          <Route path='*' component={NotFoundScreen} />
         </Switch>
       </AnimatePresence>
       <Footer />
